@@ -7,11 +7,15 @@ case class LoginDetails(username: String, password: String)
 
 object LoginDetails {
 
+  val userList: List[LoginDetails] = List(LoginDetails("admin", "password"))
+
   val loginForm = Form(
     mapping(
       "username" -> nonEmptyText,
       "password" -> nonEmptyText
     )(LoginDetails.apply)(LoginDetails.unapply)
   )
+
+  def checkIfUserIsVali(userDetails: LoginDetails) = userList.contains(userDetails)
 
 }
