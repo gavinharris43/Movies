@@ -18,4 +18,7 @@ object LoginDetails {
 
   def checkIfUserIsVali(userDetails: LoginDetails) = userList.contains(userDetails)
 
+  def getUsername(username: String) = userList.filter(user => user.username == username).headOption
+
+
 }
