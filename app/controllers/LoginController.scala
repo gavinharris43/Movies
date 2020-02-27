@@ -11,6 +11,12 @@ class LoginController @Inject()(cc: ControllerComponents) extends AbstractContro
     Ok(views.html.login(LoginDetails.loginForm))
   }
 
-  def loginSubmit() = TODO
+  def loginSubmit() = Action { implicit request: Request[AnyContent] =>
+    LoginDetails.loginForm.bindFromRequest.fold({ formWithErrors =>
+      BadRequest(views.html.login(formWithErrors))
+    }, { loginDetails =>
+      Redirect(routes.HomeController.index())
+    })
+  }
 
 }
