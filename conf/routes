@@ -1,1 +1,4 @@
 GET        /                    controllers.HomeController.index
+
+GET         /login                          controllers.LoginController.login
+POST        /login                          controllers.LoginController.loginSubmit
