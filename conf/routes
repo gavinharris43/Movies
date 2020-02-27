@@ -2,3 +2,5 @@ GET        /                    controllers.HomeController.index
 
 GET         /login                          controllers.LoginController.login
 POST        /login                          controllers.LoginController.loginSubmit
+
+GET         /assets/*file                   controllers.Assets.at(path="/public", file)
