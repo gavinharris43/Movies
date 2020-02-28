@@ -1,0 +1,9 @@
+@()(implicit messages: MessagesProvider)
+
+<div>
+    @if(messages.messages.lang.language.equals("en")) {
+        <a class = "button" href="@routes.LanguageController.homePageInWelsh()">cy</a>
+    } else {
+        <a class = "button" href="@routes.LanguageController.homePageInEnglish()">en</a>
+    }
+</div>

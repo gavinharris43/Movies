@@ -1,5 +1,7 @@
-@(message: String)
+@()(implicit messages: MessagesProvider)
 
-@main("Welcome to Play") {
+@main("Homepage") {
+
+    @messages.messages("testMessage")
 
 }
