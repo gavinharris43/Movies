@@ -15,7 +15,7 @@ class AuthenticationAction @Inject()(val parser: BodyParsers.Default)(implicit v
     request.session.get("username")
       .flatMap(username => LoginDetails.getUsername(username))
       .map(user => block(new AuthenticatedRequest(user.username, request)))
-      .getOrElse(Future.successful(Results.Forbidden))
+      .getOrElse(Future.successful(Results.Redirect("/login")))
   }
 
 }
