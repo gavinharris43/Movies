@@ -9,16 +9,16 @@ object LoginDetails {
 
   val userList: List[LoginDetails] = List(LoginDetails("admin", "password"))
 
-  val loginForm = Form(
+  val loginForm: Form[LoginDetails] = Form(
     mapping(
       "username" -> nonEmptyText,
       "password" -> nonEmptyText
     )(LoginDetails.apply)(LoginDetails.unapply)
   )
 
-  def checkIfUserIsVali(userDetails: LoginDetails) = userList.contains(userDetails)
+  def checkIfUserIsValid(userDetails: LoginDetails): Boolean = userList.contains(userDetails)
 
-  def getUsername(username: String) = userList.filter(user => user.username == username).headOption
+  def getUsername(username: String): Option[LoginDetails] = userList.find(user => user.username == username)
 
 
 }
