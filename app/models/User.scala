@@ -17,4 +17,5 @@ object JsonFormats {
 
   implicit val feedFormat: OFormat[Feed] = Json.format[Feed]
   implicit val userFormat: OFormat[User] = Json.format[User]
+  implicit val loginDetailsFormat: OFormat[LoginDetails] = Json.format[LoginDetails]
 }
