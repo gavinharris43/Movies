@@ -22,15 +22,15 @@ class MongoService @Inject()(
 
   def collection: Future[JSONCollection] = reactiveMongoApi.database.map(_.collection[JSONCollection]("persons"))
 
-  def createUser(user: User): Future[WriteResult] =  {
+  def createUser(user: User): Future[WriteResult] = {
     collection.flatMap(_.insert.one(user))
   }
 
-  def findAll(): Future[List[User]] =  {
+  def findAll(): Future[List[User]] = {
     collection.map {
-      _.find(Json.obj()).
-        sort(Json.obj("created" -> -1)).
-        cursor[User]()
+      _.find(Json.obj())
+        .sort(Json.obj("created" -> -1))
+        .cursor[User]()
     }.flatMap(
       _.collect[List](
         -1,
