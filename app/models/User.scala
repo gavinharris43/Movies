@@ -1,8 +1,17 @@
 package models
 
 import play.api.libs.json.OFormat
+import reactivemongo.bson.BSONObjectID
+
+object User {
+  def apply(age: Int,
+            firstName: String,
+            lastName: String,
+            feeds: List[Feed]) = new User(BSONObjectID.generate(), age, firstName, lastName, feeds)
+}
 
 case class User(
+                 _id: BSONObjectID,
                  age: Int,
                  firstName: String,
                  lastName: String,
@@ -13,7 +22,10 @@ case class Feed(
                  url: String)
 
 object JsonFormats {
-  import play.api.libs.json.Json
+
+  import reactivemongo.play.json._
+  import reactivemongo.play.json.collection.JSONCollection
+  import play.api.libs.json._
 
   implicit val feedFormat: OFormat[Feed] = Json.format[Feed]
   implicit val userFormat: OFormat[User] = Json.format[User]
