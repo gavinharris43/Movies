@@ -2,13 +2,8 @@ package models
 
 import play.api.libs.json.OFormat
 import reactivemongo.bson.BSONObjectID
-
-object User {
-  def apply(age: Int,
-            firstName: String,
-            lastName: String,
-            feeds: List[Feed]) = new User(BSONObjectID.generate(), age, firstName, lastName, feeds)
-}
+import play.api.data.Form
+import play.api.data.Forms._
 
 case class User(
                  _id: BSONObjectID,
@@ -20,6 +15,29 @@ case class User(
 case class Feed(
                  name: String,
                  url: String)
+
+object User {
+  def apply(age: Int,
+            firstName: String,
+            lastName: String,
+            feeds: List[Feed]) = new User(BSONObjectID.generate(), age, firstName, lastName, feeds)
+
+  def unapply(user: User): Option[(Int, String, String, List[Feed])] = Some(user.age, user.firstName, user.lastName, user.feeds)
+
+  val userForm: Form[User] = Form(
+    mapping(
+      "age" -> number,
+      "firstName" -> nonEmptyText,
+      "lastName" -> nonEmptyText,
+      "feeds" -> list(
+        mapping(
+          "name" -> nonEmptyText,
+          "url" -> nonEmptyText
+        )(Feed.apply)(Feed.unapply)
+      )
+    )(User.apply)(User.unapply)
+  )
+}
 
 object JsonFormats {
 

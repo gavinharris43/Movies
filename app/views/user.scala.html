@@ -1,0 +1,16 @@
+@(userForm: Form[User])(implicit messagesProvider: MessagesProvider)
+
+@main("User Submission"){
+
+    @helper.form(routes.ApplicationUsingJsonReadersWriters.userFormSubmit()){
+        @helper.inputText(userForm("age"), '_label -> "Age", '_showConstraints -> false)
+        @helper.inputText(userForm("firstName"), '_label -> "First name", '_showConstraints -> false)
+        @helper.inputText(userForm("lastName"), '_label -> "Last name", '_showConstraints -> false)
+        @helper.repeat(userForm("feeds")) { feed =>
+            @helper.inputText(userForm("feeds.name"), '_label -> "Feed name", '_showConstraints -> false)
+            @helper.inputText(userForm("feeds.url"), '_label -> "Feed Url", '_showConstraints -> false)
+        }
+        <button type="submit">Submit</button>
+    }
+
+}

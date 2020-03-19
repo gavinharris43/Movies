@@ -6,6 +6,8 @@ POST        /login                       controllers.LoginController.loginSubmit
 
 GET         /createperson                controllers.ApplicationUsingJsonReadersWriters.create
 POST        /createFromJson              controllers.ApplicationUsingJsonReadersWriters.createFromJson
+GET        /showUser                  controllers.ApplicationUsingJsonReadersWriters.userFormDisplay
+POST        /createUser                  controllers.ApplicationUsingJsonReadersWriters.userFormSubmit
 
 GET         /findByName/:lastName        controllers.ApplicationUsingJsonReadersWriters.findByName(lastName: String)
 
