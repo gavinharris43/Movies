@@ -72,6 +72,28 @@ class ApplicationUsingJsonReadersWriters @Inject()(
     }
   }
 
+  def displayAll = Action.async {
+    val cursor: Future[Cursor[User]] = collection.map {
+      _.find(Json.obj()).
+        cursor[User]()
+    }
+
+
+    val futureUsersList: Future[List[User]] =
+      cursor.flatMap(
+        _.collect[List](
+          -1,
+          Cursor.FailOnError[List[User]]()
+        )
+      )
+
+    futureUsersList.map { persons =>
+      println(persons.toString())
+      Ok(views.html.people(persons))
+    }
+
+  }
+
 
 
 }

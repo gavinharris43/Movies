@@ -1,0 +1,5 @@
+@(list: List[User])
+
+@for(user <- list){
+    <h3>@{user._id.toString} @{user.firstName}</h3>
+}

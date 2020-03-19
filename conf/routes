@@ -8,6 +8,7 @@ GET         /createperson                controllers.ApplicationUsingJsonReaders
 POST        /createFromJson              controllers.ApplicationUsingJsonReadersWriters.createFromJson
 GET        /showUser                  controllers.ApplicationUsingJsonReadersWriters.userFormDisplay
 POST        /createUser                  controllers.ApplicationUsingJsonReadersWriters.userFormSubmit
+GET        /showPeople                  controllers.ApplicationUsingJsonReadersWriters.displayAll
 
 GET         /findByName/:lastName        controllers.ApplicationUsingJsonReadersWriters.findByName(lastName: String)
 
