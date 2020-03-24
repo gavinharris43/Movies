@@ -1,6 +1,5 @@
 package controllers
 
-
 import javax.inject.{Inject, Singleton}
 import models.JsonFormats._
 import models.Bookings
@@ -34,33 +33,33 @@ class TicketBookingController @Inject()(components: ControllerComponents,
         Future.successful(BadRequest(views.html.bookings(formWithErrors)))
     }, {
       booking =>
+          val cursor: Future[Cursor[Bookings]] = collection.map {
+            _.find(Json.obj("title" -> booking.movieTitle, "dateTime" -> booking.dateTime)).
+              sort(Json.obj("created" -> -1)).
+              cursor[Bookings]()
+          }
 
-        val cursor: Future[Cursor[Bookings]] = collection.map {
-          _.find(Json.obj("title" -> booking.movieTitle, "dateTime" -> booking.dateTime)).
-            sort(Json.obj("created" -> -1)).
-            cursor[Bookings]()
-        }
-
-        val futureUsersList: Future[List[Bookings]] =
-          cursor.flatMap(
-            _.collect[List](
-              -1,
-              Cursor.FailOnError[List[Bookings]]()
+          val futureUsersList: Future[List[Bookings]] =
+            cursor.flatMap(
+              _.collect[List](
+                -1,
+                Cursor.FailOnError[List[Bookings]]()
+              )
             )
-          )
 
-        futureUsersList.map {
-          value =>
-            if (value.headOption.nonEmpty) {
-              collection.flatMap(_.insert.one(booking)).map {
-                _ => Ok("booked")
+          futureUsersList.map {
+            value =>
+              if (value.headOption.nonEmpty) {
+                collection.flatMap(_.insert.one(booking)).map {
+                  _ => Ok("booked")
+                }
+                Ok("booked")
               }
-              Ok("booked")
-            }
-            else BadRequest("No Movie/Viewing found for date and time/ movie selected")
-        }
+              else BadRequest("No Movie/Viewing found for date and time/ movie selected")
+          }
     })
   }
+
 
 }
 
