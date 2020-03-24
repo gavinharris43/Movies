@@ -1,16 +1,19 @@
-@(form: Form[Bookings])(message: String)
+@(form: Form[Bookings])(implicit messages: MessagesProvider)
 
 @main("Ticket Bookings") {
+    case class Bookings(title: String, dateTime: String, name: String, concession :Int, adult:Int, child:Int)
 
     <div>
-    @helper.form(routes.TicketBookingController.create()) {
-        @helper.inputText(form("name"), '_label -> "name", '_showConstraints -> false)
-        @helper.inputText(form("age"), '_label -> "age", '_showConstraints -> false)
-        @helper.inputText(form("username"), '_label ->"username", '_showConstraints -> false)
-        @helper.inputPassword(form("password"), '_label -> "password", '_showConstraints -> false)
+    @helper.form(routes.TicketBookingController.submit()) {
+        @helper.inputText(form("title"), '_label -> "Movie Title", '_showConstraints -> false)
+        @helper.inputText(form("dateTime"), '_label -> "Showing Date/Time", '_showConstraints -> false)
+        @helper.inputText(form("name"), '_label ->"Booker Name", '_showConstraints -> false)
+        @helper.inputPassword(form("concession"), '_label -> "Concession Tickets", '_showConstraints -> false)
+        @helper.inputPassword(form("adult"), '_label -> "Adult Tickets", '_showConstraints -> false)
+        @helper.inputPassword(form("child"), '_label -> "Child Tickets", '_showConstraints -> false)
+
         <button type="submit" >Confirm Booking</button>
     }
     </div>
 }
 
-}
