@@ -25,18 +25,18 @@ class TicketBookingController @Inject()(components: ControllerComponents,
 
 
   def index: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.bookings(Bookings.bookings))
+    Ok(views.html.bookings(Bookings.bookingForm))
   }
 
-  def submit() = Action.async { implicit request: Request[AnyContent] =>
-    Bookings.bookings.bindFromRequest.fold({
+  def submit: Action[AnyContent] = Action.async { implicit request: Request[AnyContent] =>
+    Bookings.bookingForm.bindFromRequest.fold({
       formWithErrors =>
         Future.successful(BadRequest(views.html.bookings(formWithErrors)))
     }, {
       booking =>
 
         val cursor: Future[Cursor[Bookings]] = collection.map {
-          _.find(Json.obj("title" -> booking.title, "dateTime" -> booking.dateTime)).
+          _.find(Json.obj("title" -> booking.movieTitle, "dateTime" -> booking.dateTime)).
             sort(Json.obj("created" -> -1)).
             cursor[Bookings]()
         }
