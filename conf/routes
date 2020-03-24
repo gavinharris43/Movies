@@ -1,5 +1,5 @@
-GET        /                    controllers.HomeController.index
-GET        /booking             controllers.TicketBookingController.index
-PUT        /booking             controllers.TicketBookingController.submit
+GET         /                    controllers.HomeController.index
+GET         /booking             controllers.TicketBookingController.index
+POST        /booking             controllers.TicketBookingController.submit
 
-GET        /assets/*file        controllers.Assets.versioned(path="/public", file: Asset)
+GET         /assets/*file        controllers.Assets.versioned(path="/public", file: Asset)
