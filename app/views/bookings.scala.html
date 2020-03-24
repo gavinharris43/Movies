@@ -1,0 +1,16 @@
+@(form: Form[Bookings])(message: String)
+
+@main("Ticket Bookings") {
+
+    <div>
+    @helper.form(routes.TicketBookingController.create()) {
+        @helper.inputText(form("name"), '_label -> "name", '_showConstraints -> false)
+        @helper.inputText(form("age"), '_label -> "age", '_showConstraints -> false)
+        @helper.inputText(form("username"), '_label ->"username", '_showConstraints -> false)
+        @helper.inputPassword(form("password"), '_label -> "password", '_showConstraints -> false)
+        <button type="submit" >Confirm Booking</button>
+    }
+    </div>
+}
+
+}
