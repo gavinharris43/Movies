@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Screens</title>
+        <style>
+    standardS {
+    width: 100%;
+    padding: 50px 0;
+    text-align: center;
+    background-color: lightblue;
+    margin-top: 20px;
+}
+</style>
+    </head>
+    <body>
+        <h1>Select Screen</h1>
+        <button onclick="standardShow()">Standard</button>
+        <button onclick="deluxeShow()">Deluxe</button>
+        <div id="standardDIV">
+            <img src = "@routes.Assets.versioned("images/cinema-seating-plan.png")" >
+        </div>
+        <div id="deluxeDIV">
+            <img src = "@routes.Assets.versioned("images/deluxe.jpg")" >
+         </div>
+        <script>
+            function standardShow() {
+                var x = document.getElementById("standardDIV");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+
+            function deluxeShow() {
+                var x = document.getElementById("deluxeDIV");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+        </script>
+    </body>
+</html>
