@@ -1,76 +1,75 @@
 
 @main("Film Classifications") {
-    <div class="row">
-        <div class="col-sm-12">
-            <div class="text-center">
-                <div class="jumbotron">
-                    <h3>Film Classifications</h3>
-                    <p>Current film classifications from the BBFC</p>
-                </div>
+<div class="row">
+    <div class="col-sm-12">
+        <div class="text-center">
+            <div class="jumbotron">
+                <h3>Film Classifications</h3>
+                <p>Current film classifications from the BBFC</p>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="container-fluid">
-        <div class="jumbotron">
-            <div class="row">
-                <div class="col-sm-1 col-lg-1" style="padding-left: 2%; padding-top: 10px">
-                    <img src="@routes.Assets.versioned("images/classifications/u.png")" class="img-fluid" alt="parental guidance">
-                </div>
-                <div class="col-sm-11 col-lg-11">
-                    <h5>Universal</h5>
-                    <p>A U film should be suitable for audiences aged four years and over, although it
-                        is impossible to predict what might upset any particular child.</p>
-                </div>
+<div class="container-fluid">
+    <div class="jumbotron">
+        <div class="row">
+            <div class="col-sm-1 col-lg-1" style="padding-left: 2%; padding-top: 20px">
+                <img src="@routes.Assets.versioned("images/classifications/u.png")" class="img-fluid" alt="parental guidance">
             </div>
-            <div class="row">
-                <div class="col-sm-1 col-lg-1" style="padding-left: 2%">
-                    <img src="@routes.Assets.versioned("images/classifications/pg.png")" class="img-fluid" alt="parental guidance">
-                </div>
-                <div class="col-sm-11 col-lg-11">
-                    <h5>Parental Guidance</h5>
-                    <p>General viewing, but some scenes may be unsuitable for young children. A PG film
-                        should not unsettle a child aged around eight or older. Unaccompanied children
-                        of any age may watch, but parents are advised to consider whether the content
-                        may upset younger, or more sensitive, children.</p>
-                </div>
+            <div class="col-sm-11 col-lg-11">
+                <h5>Universal</h5>
+                <p>A U film should be suitable for audiences aged four years and over, although it
+                    is impossible to predict what might upset any particular child.</p>
             </div>
-            <div class="row">
-                <div class="col-sm-1 col-lg-1" style="padding-left: 2%">
-                    <img src="@routes.Assets.versioned("images/classifications/12a.png")" class="img-fluid" alt="12a">
-                    <img src="@routes.Assets.versioned("images/classifications/12.png")" class="img-fluid" alt="12">
-                </div>
-                <div class="col-sm-11 col-lg-11">
-                    <h5>12/12a</h5>
-                    <p>Films classified 12A and video works classified 12 contain material that is not
-                        generally suitable for children aged under 12. No one younger than 12 may see a
-                        12A film in a cinema unless accompanied by an adult. Adults planning to take a
-                        child under 12 to view a 12A film should consider whether the film is suitable
-                        for that child. To help them decide, we recommend that they check the Ratings
-                        info for that film in advance. No one younger than 12 may rent or buy a 12 rated
-                        video work.</p>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1 col-lg-1" style="padding-left: 2%; padding-top: 30px">
+                <img src="@routes.Assets.versioned("images/classifications/pg.png")" class="img-fluid" alt="parental guidance">
             </div>
-            <div class="row">
-                <div class="col-sm-1 col-lg-1" style="padding-left: 2%">
-                    <img src="@routes.Assets.versioned("images/classifications/15.png")" class="img-fluid" alt="15">
-                </div>
-                <div class="col-sm-11 col-lg-11">
-                    <h5>15</h5>
-                    <p>No one younger than 15 may see a 15 film in a cinema. No one younger than 15 may
-                        rent or buy a 15 rated video work.</p>
-                </div>
+            <div class="col-sm-11 col-lg-11">
+                <h5>Parental Guidance</h5>
+                <p>General viewing, but some scenes may be unsuitable for young children. A PG film
+                    should not unsettle a child aged around eight or older. Unaccompanied children
+                    of any age may watch, but parents are advised to consider whether the content
+                    may upset younger, or more sensitive, children.</p>
             </div>
-            <div class="row">
-                <div class="col-sm-1 col-lg-1" style="padding-left: 2%">
-                    <img src="@routes.Assets.versioned("images/classifications/18.png")" class="img-fluid" alt="18">
-                </div>
-                <div class="col-sm-11 col-lg-11">
-                    <h5>18</h5>
-                    <p>No one younger than 18 may see an 18 film in a cinema. No one younger than 18 may
-                        rent or buy an 18 rated video work. Adults should be free to choose their own entertainment.</p>
-                </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1 col-lg-1" style="padding-left: 2%; padding-top: 20px">
+                <img src="@routes.Assets.versioned("images/classifications/12a.png")" class="img-fluid" alt="12a">
+                <img src="@routes.Assets.versioned("images/classifications/12.png")" class="img-fluid" alt="12">
+            </div>
+            <div class="col-sm-11 col-lg-11">
+                <h5>12/12a</h5>
+                <p>Films classified 12A and video works classified 12 contain material that is not
+                    generally suitable for children aged under 12. No one younger than 12 may see a
+                    12A film in a cinema unless accompanied by an adult. Adults planning to take a
+                    child under 12 to view a 12A film should consider whether the film is suitable
+                    for that child. No one younger than 12 may rent or buy a 12 rated
+                    video work.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1 col-lg-1" style="padding-left: 2%; padding-top: 10px">
+                <img src="@routes.Assets.versioned("images/classifications/15.png")" class="img-fluid" alt="15">
+            </div>
+            <div class="col-sm-11 col-lg-11">
+                <h5>15</h5>
+                <p>No one younger than 15 may see a 15 film in a cinema. No one younger than 15 may
+                    rent or buy a 15 rated video work.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-1 col-lg-1" style="padding-left: 2%; padding-top: 15px">
+                <img src="@routes.Assets.versioned("images/classifications/18.png")" class="img-fluid" alt="18">
+            </div>
+            <div class="col-sm-11 col-lg-11">
+                <h5>18</h5>
+                <p>No one younger than 18 may see an 18 film in a cinema. No one younger than 18 may
+                    rent or buy an 18 rated video work. Adults should be free to choose their own entertainment.</p>
             </div>
         </div>
     </div>
+</div>
 }
