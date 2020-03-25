@@ -7,6 +7,7 @@
             @helper.inputText(form("movieTitle"), '_label -> "Movie Title", '_showConstraints -> false)
             @helper.inputText(form("dateTime"), '_label -> "Showing Date/Time", '_showConstraints -> false)
             @helper.inputText(form("bookerName"), '_label -> "Booker Name", '_showConstraints -> false)
+            @helper.inputText(form("tickets"),'_label -> "Tickets" ,'style -> "display: none", '_showConstraints -> false)
             @*// implement tickets so the error will show for 0 tickets with _label -> "Tickets"          *@
             @helper.inputText(form("tickets.concession"), '_label -> "Concession Tickets", '_showConstraints -> false)
             @helper.inputText(form("tickets.adult"), '_label -> "Adult Tickets", '_showConstraints -> false)
