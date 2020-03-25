@@ -1,3 +1,11 @@
-GET        /                    controllers.HomeController.index
-GET     /screens             controllers.ScreensController.screenType
-GET     /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)
+GET         /                       controllers.HomeController.index
+GET         /screens                controllers.ScreensController.screenType
+
+GET         /                       controllers.HomeController.index
+GET         /booking                controllers.TicketBookingController.index
+POST        /booking                controllers.TicketBookingController.submit
+GET         /openings               controllers.HomeController.openings
+
+GET         /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)
+
+GET         /classifications        controllers.ClassificationsController.classifications
