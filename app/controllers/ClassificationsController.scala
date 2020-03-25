@@ -1,9 +1,11 @@
 package controllers
 
-import javax.inject.Inject
-import play.api.mvc.{AbstractController, Action, AnyContent, ControllerComponents}
+import javax.inject._
+import play.api.i18n.MessagesProvider
+import play.api.mvc._
 
-class ClassificationsController @Inject()(cc: ControllerComponents) extends AbstractController(cc){
+class ClassificationsController @Inject()(cc: ControllerComponents) extends AbstractController(cc)
+ with play.api.i18n.I18nSupport {
 
   def classifications: Action[AnyContent] = Action {
     Ok(views.html.classifications())
