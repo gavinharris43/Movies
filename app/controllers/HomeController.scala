@@ -11,5 +11,8 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
   }
 
 
+  def openings: Action[AnyContent] = Action{
+    Ok(views.html.openingtimes())
+  }
 
 }
