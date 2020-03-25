@@ -1,0 +1,23 @@
+@(form: Form[CardDetails])(implicit messagesProvider: MessagesProvider)
+
+@main("") {
+
+    <div>
+    @helper.form(routes.CardController.checkout()){
+        @helper.inputText(form("Name On Card"), '_label -> "Name on Card", '_showConstraints -> false)
+        @helper.inputText(form("Card Number"), '_label -> "Card Number", '_showConstraints -> false)
+        @helper.inputDate(form("Expiry Date"), '_label -> "Expiry Date", '_showConstraints -> false)
+        @helper.inputText(form("Security code"), '_label -> "Security Code", '_showConstraints -> false)
+        @helper.inputText(form("name"), '_label -> "Full name", '_showConstraints -> false)
+        @helper.inputText(form("Address"), '_label -> "Address", '_showConstraints -> false)
+        @helper.inputText(form("City"), '_label -> "City", '_showConstraints -> false)
+        @helper.inputPassword(form("County"), '_label -> "County", '_showConstraints -> false)
+        @helper.inputText(form("Country"), '_label -> "Country", '_showConstraints -> false)
+        @helper.inputText(form("Postcode"), '_label -> "PostCode", '_showConstraints -> false)
+        @helper.inputText(form("Phone"), '_label -> "Phone", '_showConstraints -> false)
+        @helper.inputPassword(form("Email"), '_label -> "Email", '_showConstraints -> false)
+        <button type="submit">Submit</button>
+    }
+    </div>
+
+}
