@@ -11,6 +11,7 @@ object JsonFormats {
   import reactivemongo.play.json.collection.JSONCollection
   import play.api.libs.json._
   implicit val bsonObjectIDFormat: OFormat[Bookings] = Json.format[Bookings]
+  implicit val ratingFormat: OFormat[Rating] = Json.format[Rating]
   implicit val moviesFormat: OFormat[Movies] = Json.format[Movies]
   implicit val cardFormat: OFormat[CardDetails] = Json.format[CardDetails]
   implicit val bsonObjectIDFormats: OFormat[BSONObjectID] = Json.format[BSONObjectID]
