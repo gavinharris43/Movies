@@ -1,3 +1,3 @@
 GET        /                    controllers.HomeController.index
-
+GET        /checkout                   controllers.CardController.checkout()
 GET     /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)
