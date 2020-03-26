@@ -53,14 +53,3 @@ object CardDetails {
   )
 
 }
-object JsonFormats {
-
-  import play.api.libs.json.Json
-  import reactivemongo.play.json._
-  import reactivemongo.play.json.collection.JSONCollection
-  import play.api.libs.json._
-
-  implicit val cardFormat: OFormat[CardDetails] = Json.format[CardDetails]
-  implicit val bsonObjectIDFormat: OFormat[BSONObjectID] = Json.format[BSONObjectID]
-
-}
