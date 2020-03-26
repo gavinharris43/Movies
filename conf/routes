@@ -4,7 +4,7 @@ GET         /listingGallery         controllers.ListingController.listingGallery
 GET         /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)
 GET         /                       controllers.HomeController.index
 GET         /screens                controllers.ScreensController.screenType
-
+GET         /gettingThere           controllers.GettingThereController.gettingThere
 GET         /                       controllers.HomeController.index
 GET         /booking                controllers.TicketBookingController.index
 POST        /booking                controllers.TicketBookingController.submit
