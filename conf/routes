@@ -9,7 +9,10 @@ GET         /                       controllers.HomeController.index
 GET         /booking                controllers.TicketBookingController.index
 POST        /booking                controllers.TicketBookingController.submit
 GET         /openings               controllers.HomeController.openings
-GET         /placestogo             controllers.HomeController.placesToGo
+GET         /placestogo             controllers.PlacesToGoController.placesToGo
+
+GET         /places                 controllers.PlacesToGoController.places
+POST        /places                 controllers.PlacesToGoController.submit
 
 GET         /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)
 
