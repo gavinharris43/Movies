@@ -5,15 +5,13 @@ GET     /assets/*file           controllers.Assets.versioned(path="/public", fil
 POST        /payment                     controllers.Mongo.createPayment
 
 GET        /Hard                     controllers.Mongo.hardcode
-
 GET         /listings:title         controllers.ListingController.listingIndex(title)
 GET         /listingGallery         controllers.ListingController.listingGalleryIndex
-
 GET         /screens                controllers.ScreensController.screenType
 GET         /gettingThere           controllers.GettingThereController.gettingThere
-
 GET         /booking                controllers.TicketBookingController.index
 POST        /booking                controllers.TicketBookingController.submit
 GET         /openings               controllers.HomeController.openings
+
 
 GET         /classifications        controllers.ClassificationsController.classifications
