@@ -38,4 +38,16 @@ class MovieController @Inject()(
       )
     )
   }
+  def findAll(): Future[List[Movies]] = {
+    collection.map {
+      _.find(Json.obj())
+        .sort(Json.obj("created" -> -1))
+        .cursor[Movies]()
+    }.flatMap(
+      _.collect[List](
+        -1,
+        Cursor.FailOnError[List[Movies]]()
+      )
+    )
+  }
 }
