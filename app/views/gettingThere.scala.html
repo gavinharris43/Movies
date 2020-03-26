@@ -1,36 +1,25 @@
 @main("Getting There") {
-    <div style="background-color:lightblue">
+    <div style="background-color: lightblue">
         <h3>Kinoplex</h3>
         <img src="http://www.cdc.gov/stroke/images/family_history.jpg">
         <p>This is some text in a div element.</p>
     </div>
-    <style>
-            /* Always set the map height explicitly to define the size of the div
-             * element that contains the map. */
-            #map {
-                height: 50%;
-                width: 100%;
 
-            }
-            /* Optional: Makes the sample page fill the window. */
-            html, body {
-                height: 100%;
-                margin: 0;
-                padding: 0;
-            }
-    </style>
 
-    <div id="map"></div>
-    <div id="row" style="padding-top: 2%; padding-left: 2%">
-        <h4>Address</h4>
-        <p>2 Anchorage Quay</p>
-        <p>Salford</p>
-        <p>M50 3YW</p>
+    <div class="row pl-4 pt-2">
+        <div class="col-8">
+            <div id="map"></div>
+        </div>
+        <div class="col-3 pt-3">
+            <h4>Address</h4>
+            <p>2 Anchorage Quay</p>
+            <p>Salford</p>
+            <p>M50 3YW</p>
+            <h4>Parking</h4>
+            <p>Limited customer parking is available in front of the building.</p>
+        </div>
     </div>
-    <div id="row" style="padding-left: 2%">
-        <h4>Parking</h4>
-        <p>Limited customer parking is available in front of the building.</p>
-    </div>
+
     <script src="@routes.Assets.versioned("javascripts/maps.js")"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiQmMqQP2rjy0lcZi5CWyontgkSKbAhUE&callback=initMap"
     async defer></script>
