@@ -1,13 +1,14 @@
 package controllers
 
-import javax.inject._
-import models.Places
+import javax.inject.Inject
 import models.JsonFormats._
+import models.Places
 import play.api.libs.json.Json
 import play.api.mvc._
 import play.modules.reactivemongo.{MongoController, ReactiveMongoApi, ReactiveMongoComponents}
 import reactivemongo.api.Cursor
-import reactivemongo.play.json.collection.JSONCollection
+import reactivemongo.play.json._
+import reactivemongo.play.json.collection.{JSONCollection, _}
 
 import scala.concurrent.{ExecutionContext, Future}
 
@@ -24,7 +25,7 @@ class PlacesToGoController @Inject()(components: ControllerComponents,
     Ok(views.html.placestogo())
   }
 
-  def placesToGo: Action[AnyContent] = Action{ implicit request: Request[AnyContent] =>
+  def places: Action[AnyContent] = Action{ implicit request: Request[AnyContent] =>
     Ok(views.html.places(Places.placesForm))
   }
 
