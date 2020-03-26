@@ -1,13 +1,16 @@
 GET        /                    controllers.HomeController.index
 GET        /checkout                   controllers.CardController.checkout()
 GET     /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)
+
+POST        /payment                     controllers.Mongo.createPayment
+
+GET        /Hard                     controllers.Mongo.hardcode
 GET         /                       controllers.HomeController.index
 GET         /listings:title         controllers.ListingController.listingIndex(title)
 GET         /listingGallery         controllers.ListingController.listingGalleryIndex
 GET         /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)
 GET         /                       controllers.HomeController.index
 GET         /screens                controllers.ScreensController.screenType
-
 GET         /                       controllers.HomeController.index
 GET         /booking                controllers.TicketBookingController.index
 POST        /booking                controllers.TicketBookingController.submit
