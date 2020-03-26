@@ -1,0 +1,30 @@
+@main("Getting There") {
+
+
+    <div class="container">
+        <img src= "@routes.Assets.versioned("images/cinema-front2.JPG")" alt="Cinema" style="width: 100%;">
+        <div class="center-left"><h1>Kinoplex</h1></div>
+    </div>
+
+
+    <div class="row pl-5 pt-5">
+        <div class="col-8">
+            <div id="map"></div>
+        </div>
+        <div class="col-3 pt-3">
+            <h4>Address</h4>
+            <p>2 Anchorage Quay</p>
+            <p>Salford</p>
+            <p>M50 3YW</p>
+            <h4>Parking</h4>
+            <p>Limited customer parking is available in front of the building.</p>
+            <h4>Public transport</h4>
+            <p>There is a tram stop directly outside the building. It is on the Eccles-Ashton line.</p>
+        </div>
+    </div>
+
+    <script src="@routes.Assets.versioned("javascripts/maps.js")"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiQmMqQP2rjy0lcZi5CWyontgkSKbAhUE&callback=initMap"
+    async defer></script>
+
+}
