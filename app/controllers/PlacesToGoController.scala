@@ -62,5 +62,18 @@ class PlacesToGoController @Inject()(components: ControllerComponents,
     })
   }
 
+  def findAll(): Future[List[Places]] = {
+    collection.map {
+      _.find(Json.obj())
+        .sort(Json.obj("created" -> -1))
+        .cursor[Places]()
+    }.flatMap(
+      _.collect[List](
+        -1,
+        Cursor.FailOnError[List[Places]]()
+      )
+    )
+  }
+
 
 }
