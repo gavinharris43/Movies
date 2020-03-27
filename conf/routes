@@ -40,3 +40,6 @@ GET         /subscribe              controllers.EmailController.subscribe
 POST        /subscribe              controllers.EmailController.subscribeSubmit
 
 GET         /contact                controllers.ContactController.contact
+
+GET         /DicussionBoard         controllers.DiscussionBoardController.discussionIndex
+GET         /DicussionListing:title controllers.DiscussionBoardController.discussionListingIndex(title)
