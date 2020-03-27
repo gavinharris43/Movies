@@ -1,7 +1,15 @@
+@(places: List[Place])
+
 @main("Places to Go"){
     <div class="container">
 
+@for(place <- places){
 
+    @place.placeName.toString
+    @place.address
+    @place.contact
+    @place.description
+}
         <header class="headder">
             <h1 class="display-3">Places to Go!</h1>
             <p class="lead">this page is about the places you can visit</p>

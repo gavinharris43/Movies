@@ -7,7 +7,7 @@
         <div style="padding-top: 30px" align="center">
 
         @helper.form(routes.PlacesToGoController.submit()){
-            @helper.inputRadioGroup(form("placeType"), options = options("Bar"->"Bar","Restorant"->"Restorant"),
+            @helper.inputRadioGroup(form("placeType"), options = options("Bar"->"Bar","Restaurant"->"Restaurant"),
             '_label -> "Type", '_error -> form("placeType").error.map(_.withMessage("Please Select Type")), '_showConstraints -> false)
             @helper.inputText(form("placeName"), '_label -> "Place Name", '_showConstraints -> false)
             @helper.inputText(form("address"), '_label -> "Address", '_showConstraints -> false)

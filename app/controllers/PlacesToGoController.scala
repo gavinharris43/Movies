@@ -21,8 +21,8 @@ class PlacesToGoController @Inject()(components: ControllerComponents,
   implicit val ec: ExecutionContext = components.executionContext
   val collection: Future[JSONCollection] = mongoService.collection
 
-  def placesToGo: Action[AnyContent] = Action{
-    Ok(views.html.placestogo())
+  def placesToGo(places: List[Place]): Action[AnyContent] = Action{
+    Ok(views.html.placestogo(places))
   }
 
   def places: Action[AnyContent] = Action{ implicit request: Request[AnyContent] =>
@@ -60,6 +60,13 @@ class PlacesToGoController @Inject()(components: ControllerComponents,
             else BadRequest("Place Not Added")
         }
     })
+  }
+
+  def placesToGoIndex = Action.async {
+    //    movieController.createMovie(personaTest)
+    //    movieController.createMovie(sonicTest)
+    //    movieController.createMovie(powerRangersTest)
+    mongoService.findAllPlaces().map(place => Ok(views.html.placestogo(place)))
   }
 
   def getAllPlaces: Action[AnyContent] = Action.async {
