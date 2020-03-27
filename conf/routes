@@ -5,3 +5,5 @@ POST        /booking                controllers.TicketBookingController.submit
 GET         /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)
 
 GET         /classifications        controllers.ClassificationsController.classifications
+
+GET         /create                 controllers.ClassificationsController.insertRatings
