@@ -1,6 +1,5 @@
 package models
 
-import akka.http.scaladsl.model.DateTime
 import play.api.data.Form
 import play.api.data.Forms._
 
