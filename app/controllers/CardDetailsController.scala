@@ -15,7 +15,7 @@ import reactivemongo.play.json.collection.{JSONCollection, _}
 import scala.concurrent.{ExecutionContext, Future}
 
 
-class Mongo @Inject()(components: ControllerComponents, val reactiveMongoApi: ReactiveMongoApi) extends AbstractController(components)
+class CardDetailsController @Inject()(components: ControllerComponents, val reactiveMongoApi: ReactiveMongoApi) extends AbstractController(components)
   with MongoController with ReactiveMongoComponents  with play.api.i18n.I18nSupport {
 
 

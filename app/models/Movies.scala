@@ -11,4 +11,10 @@ object  Movies{
             actors: List[String],
             directors: List[String]):
   Movies = new Movies(movieTitle, images , dateRelease.toString, actors, directors)
+
+
+
+  def getNewest5(movies: List[Movies]){
+
+  }
 }
