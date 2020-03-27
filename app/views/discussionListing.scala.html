@@ -1,76 +1,51 @@
-@import views.html.helper.options
-@(film : Movies,comments: List[Review],form: Form[Review])(implicit messagesProvider: MessagesProvider)
+@(film : Movies)(form: Form[Review])(implicit messagesProvider: MessagesProvider)
 
 @main("Discussion Board") {
-    <div class="container-fluid" style="padding-top: 1em">
-    </div>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-3">
+        <div class="col-5">
+            <h3>@film.movieTitle</h3>
         </div>
-        <div class = "col-6" style="height: 40em; overflow-y: auto;" >
-            @for(comment <- comments) {
-                <div class="card border-warning mb-3" >
-                    <div class="card-body ">
-                        <div class = "row">
-                        <p class = "col-10">@comment.body</p>
-                            <div class = "col-2" style ="border-left:1px solid grey;">
-                                <div style="border-bottom: 1px solid grey;">
-                                    <h6 style="text-align: center">@comment.rating /5"</h6>
-                                </div>
-                                <div>
-                                    <h6 style="text-align: center">@comment.name</h6>
-                                </div>
-                            </div>
-                        </div>
+        <div class = "col-7" style="height: 400px; overflow-y: scroll;" >
+            @for(i <- 0 until 10) {
+                <div class="card" >
+                    <div class="card-header">
+                Quote
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        </blockquote>
                     </div>
                 </div>
             }
         </div>
-        <div class = "col-3">
-            <div class="card" style = "height: 18em;" >
-                <div class="card-header">
-                    @film.movieTitle
-                </div>
-                <div class="card-body">
-                    <h7 class="card-subtitle" style = "padding-bottom: 5px">Actors:</h7>
-                    <p class="card-text mb-2 text-muted">@film.actors.toString</p>
-                    <h7 class="card-subtitle" style = "padding-bottom: 5px">Directors:</h7>
-                    <p class="card-text mb-2 text-muted">@film.directors.toString</p>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
-    <div class="container-fluid" style="padding-top: 1em">
-    </div>
-    <div class="container-fluid" style="margin-top: 2em">
     @helper.form(routes.ReviewController.createReview()){
-        <div class="row" >
-            <div class="col-3">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-5">
             </div>
-            <div  class="col-6">
-                <div class = "row" >
-                    <div class="col-6" style="margin-top: -1em;">
-                        @helper.textarea(form("body"), 'class -> "form-control",'_label -> null, 'style -> "width:100%;", 'id -> "ReviewArea", 'rows -> "3",'placeholder -> "Your Review", '_showConstraints -> false)
-                    </div>
-                    <div class="col-3">
-                        <div  style=" margin-top: -13px">
-                            @helper.inputText(form("name"), 'class -> "form-control",'_label -> null, 'style -> "width:200px;",'placeholder -> "UserName", '_showConstraints -> false)
-                        </div>
-                        <div style="margin-top: -29px">
-                            @helper.inputRadioGroup(form("rating"), options = options("1"->"1","2"->"2","3"->"3","4"->"4","5"->"5"),
-                            '_label -> null, '_error -> form("rating").error.map(_.withMessage("Please Select a rating")), 'style -> "margin-right:10px", '_showConstraints -> false)
-                        </div>
-                    </div>
-                    <div class="col-2">
-                        <button type="submit" class="btn btn-warning active" style = "margin-top: 2em">Submit Comment</button>
-                    </div>
+            <div  class="col-7">
+                @helper.inputText(form("postcode"), '_label -> "PostCode", '_showConstraints -> false)
+                @helper.textarea(form("body"), 'class -> "form-control", 'style -> "width:500px; margin-top: 10px", 'id -> "ReviewArea", 'rows -> "3")
+                <textarea  class="form-control " style="width:500px; margin-top: 10px " id="ReviewArea" rows="3"></textarea>
             </div>
         </div>
-         @helper.inputText(form("movieTitle"), 'style -> "visibility: hidden;",'_label -> null,'_showConstraints -> false)
     </div>
-
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-5">
+            </div>
+            <div  class="col-7" style="margin-top: 10px" >
+                <textarea  class="form-control " style="width:200px; height: 40px; display:inline-block;" id="ReviewArea" rows="3"></textarea>
+                    @for(i <- 0 until 5){
+                    <input type="radio" id="@i" name="@i" value="@i" style="margin-right: 15px">
+                    }
+                <input type="submit" display:inline-block;>
+            </div>
+        </div>
+    </div>
 }
 
 

@@ -6,14 +6,11 @@ POST       /payment                controllers.CardDetailsController.createPayme
 POST       /Review                  controllers.ReviewController.createReview
 GET        /Hard                    controllers.CardDetailsController.hardcode
 GET         /                       controllers.HomeController.index
-POST        /payment                controllers.CardDetailsController.createPayment
+POST        /payment                controllers.Mongo.createPayment
 
-GET         /Hard                   controllers.CardDetailsController.hardcode
+GET         /Hard                   controllers.Mongo.hardcode
 GET         /listings:title         controllers.ListingController.listingIndex(title)
 GET         /listingGallery         controllers.ListingController.listingGalleryIndex
-GET         /newListingGallery      controllers.ListingController.newListingGalleryIndex
-GET         /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)
-GET         /                       controllers.HomeController.index
 GET         /screens                controllers.ScreensController.screenType
 GET         /gettingThere           controllers.GettingThereController.gettingThere
 GET         /booking                controllers.TicketBookingController.index
@@ -31,7 +28,7 @@ GET         /mail                   controllers.EmailController.email
 POST        /mail                   controllers.EmailController.submit
 GET         /scrum                  controllers.HomeController.scrum
 
-
+GET         /classifications        controllers.ClassificationsController.classifications
 
 
 GET         /DicussionBoard         controllers.DiscussionBoardController.discussionIndex
