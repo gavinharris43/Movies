@@ -134,3 +134,18 @@ html, body {
     margin: 0;
     padding: 0;
 }
+
+/* Container holding the image and the text */
+.container {
+    position: relative;
+    text-align: center;
+    color: white;
+}
+
+/* Centered text */
+.center-left {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-250%, -200%);
+}
