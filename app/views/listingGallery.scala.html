@@ -4,7 +4,7 @@
     <div class="container-fluid" style="padding-top: 30px" align="center">
         <div class = "row" >
         @for(film <- films ){
-            <div class="card col-sm-4 col-lg-4" style="width: 18rem;" onclick ="@routes.ListingController.listingIndex(film.movieTitle)" >
+            <div class="card col-sm-4 col-lg-4"  onclick ="@routes.ListingController.listingIndex(film.movieTitle)" >
                 <img class="card-img-top" src="@routes.Assets.versioned(film.images.head)" alt="Card image cap">
                 <div class="card-body">
                     <a href="@routes.ListingController.listingIndex(film.movieTitle)" class="stretched-link"></a>

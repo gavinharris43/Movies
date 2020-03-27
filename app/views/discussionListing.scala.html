@@ -1,0 +1,88 @@
+@(film : Movies)(form: Form[Review])(implicit messagesProvider: MessagesProvider)
+
+@main("Discussion Board") {
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-5">
+            <h3>@film.movieTitle</h3>
+        </div>
+        <div class = "col-7" style="height: 400px; overflow-y: scroll;" >
+            @for(i <- 0 until 10) {
+                <div class="card" >
+                    <div class="card-header">
+                Quote
+                    </div>
+                    <div class="card-body">
+                        <blockquote class="blockquote mb-0">
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                        </blockquote>
+                    </div>
+                </div>
+            }
+        </div>
+</div>
+    @helper.form(routes.ReviewController.createReview()){
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-5">
+            </div>
+            <div  class="col-7">
+                @helper.inputText(form("postcode"), '_label -> "PostCode", '_showConstraints -> false)
+                @helper.textarea(form("body"), 'class -> "form-control", 'style -> "width:500px; margin-top: 10px", 'id -> "ReviewArea", 'rows -> "3")
+                <textarea  class="form-control " style="width:500px; margin-top: 10px " id="ReviewArea" rows="3"></textarea>
+            </div>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-5">
+            </div>
+            <div  class="col-7" style="margin-top: 10px" >
+                <textarea  class="form-control " style="width:200px; height: 40px; display:inline-block;" id="ReviewArea" rows="3"></textarea>
+                    @for(i <- 0 until 5){
+                    <input type="radio" id="@i" name="@i" value="@i" style="margin-right: 15px">
+                    }
+                <input type="submit" display:inline-block;>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
