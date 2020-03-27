@@ -3,12 +3,12 @@ package models
 import play.api.data.Form
 import play.api.data.Forms._
 
-case class Places(placeType: String,placeName: String, address: String, contact: String, description: String, discount: String, picture: String){
+case class Place(placeType: String, placeName: String, address: String, contact: String, description: String, discount: String, picture: String){
 }
 
-object Places {
+object Place {
 
-  val placesForm: Form[Places] = Form(
+  val placesForm: Form[Place] = Form(
     mapping(
       "placeType" -> nonEmptyText,
       "placeName" -> nonEmptyText,
@@ -17,13 +17,7 @@ object Places {
       "description" -> nonEmptyText,
         "discount" -> nonEmptyText,
         "picture" -> nonEmptyText
-    ) (Places.apply)(Places.unapply)
+    ) (Place.apply)(Place.unapply)
   )
 
 }
-
-
-
-
-
-
