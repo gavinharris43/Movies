@@ -21,7 +21,20 @@
             }
     </style>
 
-    <div id="map"></div>
+    <div class="row pl-4 pt-2">
+        <div class="col-8">
+            <div id="map"></div>
+        </div>
+        <div class="col-3 pt-3">
+            <h4>Address</h4>
+            <p>2 Anchorage Quay</p>
+            <p>Salford</p>
+            <p>M50 3YW</p>
+            <h4>Parking</h4>
+            <p>Limited customer parking is available in front of the building.</p>
+        </div>
+    </div>
+
     <script src="@routes.Assets.versioned("javascripts/maps.js")"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCiQmMqQP2rjy0lcZi5CWyontgkSKbAhUE&callback=initMap"
     async defer></script>

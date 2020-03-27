@@ -127,7 +127,8 @@ dd.error{color:#c00;}
 aside a[href^="http"]:after,.doc a[href^="http"]:after{content:url(/images/external.png);vertical-align:middle;margin-left:5px;}
 
 #map {
-    height: 100%
+    height: 150%;
+    width: 100%;
 }
 html, body {
     height: 100%;
