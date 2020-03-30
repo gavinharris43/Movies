@@ -12,6 +12,10 @@ GET         /gettingThere           controllers.GettingThereController.gettingTh
 GET         /booking                controllers.TicketBookingController.index
 POST        /booking                controllers.TicketBookingController.submit
 GET         /openings               controllers.HomeController.openings
+GET         /placestogo             controllers.PlacesToGoController.placesToGoIndex
+
+GET         /places                 controllers.PlacesToGoController.places
+POST        /places                 controllers.PlacesToGoController.submit
 
 
 GET         /classifications        controllers.ClassificationsController.classifications
