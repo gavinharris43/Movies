@@ -1,6 +1,6 @@
 @(places: List[Place])
 
-@main("Places to Go"){
+@main("Places to Go") {
     <div class="container">
         <header class="header">
             <h1 class="display-3">Places to Go!</h1>
@@ -10,14 +10,15 @@
 
         <div class="control-box">
 
-        @for(place <- places){
+        @for(place <- places) {
             <div class="row text-center">
 
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card h-100">
                         <div class="card-body">
                             <h4 class="card-title">@place.placeName</h4>
-                            <p class="card-text"> @place.placeType <br> @place.address <br>  @place.contact </p>
+                            <p class="card-text"> @place.placeType <br>
+                                @place.address <br> @place.contact </p>
                         </div>
                     </div>
                 </div>
@@ -42,9 +43,7 @@
 
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card h-100">
-                        <img class="card-img-top" src="@place.picture" alt="Place Pic" style="width:100%;height:100%;">
-                        <div class="card-footer">
-                        </div>
+                        <img class="center" src="@place.picture" alt="Place Pic" style="width: 100%;">
                     </div>
                 </div>
 
