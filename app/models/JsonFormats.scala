@@ -14,4 +14,5 @@ object JsonFormats {
   implicit val moviesFormat: OFormat[Movies] = Json.format[Movies]
   implicit val cardFormat: OFormat[CardDetails] = Json.format[CardDetails]
   implicit val bsonObjectIDFormats: OFormat[BSONObjectID] = Json.format[BSONObjectID]
+  implicit val placesFormat: OFormat[Place] = Json.format[Place]
 }

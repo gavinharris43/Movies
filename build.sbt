@@ -15,5 +15,8 @@ unmanagedResourceDirectories in Test <+=  baseDirectory ( _ /"target/web/public/
 
 libraryDependencies ++= Seq( jdbc , ehcache , ws , specs2 % Test , guice,
   "org.reactivemongo" %% "play2-reactivemongo" % "0.20.3-play27",
-  "org.slf4j" % "slf4j-api" % "1.7.25"
+  "org.slf4j" % "slf4j-api" % "1.7.25",
+  "org.scalatestplus.play" %% "scalatestplus-play" % "5.0.0" % Test,
+  "org.mockito" % "mockito-core" % "2.7.22" % Test,
+  "org.scalatest" %% "scalatest" % "3.0.8" % Test
 )
