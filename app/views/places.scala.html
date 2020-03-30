@@ -1,0 +1,23 @@
+@import views.html.helper.options
+@(form: Form[Place])(implicit messages: MessagesProvider)
+
+    @main("Places") {
+
+    <div class="container">
+        <div style="padding-top: 30px" align="center">
+
+        @helper.form(routes.PlacesToGoController.submit()){
+            @helper.inputRadioGroup(form("placeType"), options = options("Bar"->"Bar","Restaurant"->"Restaurant"),
+            '_label -> "Type", '_error -> form("placeType").error.map(_.withMessage("Please Select Type")), '_showConstraints -> false)
+            @helper.inputText(form("placeName"), '_label -> "Place Name", '_showConstraints -> false)
+            @helper.inputText(form("address"), '_label -> "Address", '_showConstraints -> false)
+            @helper.inputText(form("contact"), '_label -> "Contact Number", '_showConstraints -> false)
+            @helper.textarea(form("description"),'_label -> "Description" , '_showConstraints -> false)
+            @helper.inputText(form("discount"), '_label -> "Discount", '_showConstraints -> false)
+            @helper.inputText(form("picture"), '_label -> "Picture URL", '_showConstraints -> false)
+            <button type="submit" >Add Place</button>
+        }
+            </div>
+        </div>
+    }
+

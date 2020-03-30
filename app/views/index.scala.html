@@ -1,14 +1,72 @@
-@(message: String)
+@(message: String)(implicit messages: MessagesProvider)
 
-@main("Welcome to Play") {
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-8 col-lg-8 box">
-                <h2>@message</h2>
+@main("Welcome to Kinoplex") {
+
+
+    <div class="container">
+
+
+        <div class="row align-items-center my-5">
+            <div class="col-lg-7">
+                <img class="img-fluid rounded mb-4 mb-lg-0" src="https://i.kym-cdn.com/photos/images/newsfeed/001/567/849/545.png" alt="">
             </div>
-            <div class="col-sm-3 col-lg-3 box">
-                <h2>@message</h2>
+
+            <div class="col-lg-5">
+                <h1 class="font-weight-light">Welcome to the Kinoplex</h1>
+                <p>We here at Kinoplex are determined to bring the best blockbusters straight to your neighborhood! With our wide selection of new releases there's no reason for you to come on down and enjoy the pinnacle cinema experience with us at Kinoplex!</p>
+                <a class="btn btn-primary" href="#">Find Cinema</a>
+            </div>
+
+        </div>
+
+        <div class="card text-white bg-secondary my-5 py-4 text-center">
+            <div class="card-body">
+                <p class="text-white m-0">This to showcase some important information like corona stuff</p>
             </div>
         </div>
+
+
+        <div class="row">
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title">Feature Film One</h2>
+                        <p class="card-text">Brief synopsis about the film</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary btn-sm">Book Now!</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title">Film Two</h2>
+                        <p class="card-text">Brief synopsis about the film</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary btn-sm">Book Now!</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-5">
+                <div class="card h-100">
+                    <div class="card-body">
+                        <h2 class="card-title">Film Three</h2>
+                        <p class="card-text">Brief synopsis about the film</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="#" class="btn btn-primary btn-sm">Book Now!</a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+
     </div>
+
 }
