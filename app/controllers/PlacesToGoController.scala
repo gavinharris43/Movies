@@ -63,9 +63,6 @@ class PlacesToGoController @Inject()(components: ControllerComponents,
   }
 
   def placesToGoIndex = Action.async {
-    //    movieController.createMovie(personaTest)
-    //    movieController.createMovie(sonicTest)
-    //    movieController.createMovie(powerRangersTest)
     mongoService.findAllPlaces().map(place => Ok(views.html.placestogo(place)))
   }
 
