@@ -5,11 +5,12 @@
             }
     </style>
 
-        <h1>Select Screen Type</h1>
+        <h1 align="center">Select Screen Type</h1>
+    <div align="center">
         <button onclick="standardShows()">Standard</button>
         <button onclick="deluxeShow()">Deluxe</button>
         <div class = "hidden" id="standardDIV">
-            <h2>Standard Screen</h2>
+            <h2 align="left">Standard Screen</h2>
                 <div class="container-fluid" style="padding-top: 30px">
                  <div class="row">
                     <div class="col-sm-6 col-lg-6 box">
@@ -38,7 +39,7 @@
             <img src = "@routes.Assets.versioned("images/screen-images/cinema-seating-plan.png")" >
         </div>
         <div class = "hidden" id="deluxeDIV">
-            <h2>Deluxe Screen</h2>
+            <h2 align="left">Deluxe Screen</h2>
             <div class="container-fluid" style="padding-top: 30px">
                  <div class="row">
                     <div class="col-sm-6 col-lg-6 box">
@@ -69,25 +70,31 @@
             <h3>Seating Plan</h3>
             <img src = "@routes.Assets.versioned("images/screen-images/deluxe.jpg")" >
          </div>
-
+    </div>
         <script>
             function standardShows() {
-                var x = document.getElementById("standardDIV");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                    x.style.visibility="visible"
+                let standardS = document.getElementById("standardDIV");
+                let deluxeS = document.getElementById("deluxeDIV");
+                if (standardS.style.display === "none") {
+                    standardS.style.display = "block";
+                    standardS.style.visibility="visible";
+                    deluxeS.style.visibility="hidden";
+                    deluxeS.style.display = "none";
                 } else {
-                    x.style.display = "none";
+                    standardS.style.display = "none";
                 }
             }
 
             function deluxeShow() {
-                var x = document.getElementById("deluxeDIV");
-                if (x.style.display === "none") {
-                    x.style.display = "block";
-                    x.style.visibility="visible"
+                var deluxeD = document.getElementById("deluxeDIV");
+                let standardD = document.getElementById("standardDIV");
+                if (deluxeD.style.display === "none") {
+                    deluxeD.style.display = "block";
+                    deluxeD.style.visibility="visible";
+                    standardD.style.display = "block";
+                    standardD.style.visibility="visible";
                 } else {
-                    x.style.display = "none";
+                    deluxeD.style.display = "none";
                 }
             }
         </script>
