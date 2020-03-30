@@ -2,66 +2,54 @@
 
 @main("Places to Go"){
     <div class="container">
-
-@for(place <- places){
-
-    @place.placeName.toString
-    @place.address
-    @place.contact
-    @place.description
-}
-        <header class="headder">
+        <header class="header">
             <h1 class="display-3">Places to Go!</h1>
             <p class="lead">this page is about the places you can visit</p>
-            <a href="#" class="btn btn-primary btn-lg">Locate cinema</a>
+
         </header>
 
         <div class="control-box">
+
+        @for(place <- places){
             <div class="row text-center">
 
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card h-100">
-                        <img class="card-img-top" src="">
                         <div class="card-body">
-                            <h4 class="card-title">Resturant Name</h4>
-                            <p class="card-text"> type, address, contact number </p>
+                            <h4 class="card-title">@place.placeName</h4>
+                            <p class="card-text"> @place.placeType <br> @place.address <br>  @place.contact </p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card h-100">
-                        <img class="card-img-top" src="">
                         <div class="card-body">
                             <h4 class="card-title">Description</h4>
-                            <p class="card-text">Resturant info </p>
+                            <p class="card-text">@place.discount </p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card h-100">
-                        <img class="card-img-top" src="">
                         <div class="card-body">
                             <h4 class="card-title">Cinema Offers</h4>
-                            <p class="card-text">offer info</p>
-                        </div>
-                        <div class="card-footer">
-                            <a href="#" class="btn btn-primary">Place an order!</a>
+                            <p class="card-text">@place.discount</p>
                         </div>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 mb-4">
                     <div class="card h-100">
-                        <img class="card-img-top" src="https://gritsandgrids.s3.amazonaws.com/media/2016/03/e22b8326364947.5635482042182.jpg" alt="Girl in a jacket" style="width:300px;height:200px;">
+                        <img class="card-img-top" src="@place.picture" alt="Place Pic" style="width:100%;height:100%;">
                         <div class="card-footer">
-                            <p class="card-text">caption to go with image</p>
                         </div>
                     </div>
                 </div>
 
             </div>
+        }
         </div>
     </div>
 }
