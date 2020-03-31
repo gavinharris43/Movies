@@ -34,18 +34,22 @@ class EmailController @Inject()(components: ControllerComponents,
       mailData => {
         findAllSubscribers().map({
           subscribers =>
+
+            val subs =Seq(subscribers.head.email)
+
             val email = Email(
-              "Simple email",
-              "Mister FROM <email@qmail.com>",
-              Seq("Miss TO <tq01244@gmail.com>"),
+              s"${mailData.subject}",
+              s"Kinoplex <${mailData.email}>",
+              subs,
               // adds attachment
               attachments = Seq(
 
               ),
               // sends text, HTML or both...
               bodyText = Some("A text message"),
-              bodyHtml = Some(s"""<html><body><p>An <b>html</b> message with cid <img src="cid:"></p></body></html>""")
+              bodyHtml = Some(s"""<html><body><p>An <b>html</b> ${mailData.body}</p></body></html>""")
             )
+
 
 
 
