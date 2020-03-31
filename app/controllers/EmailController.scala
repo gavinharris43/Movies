@@ -1,6 +1,6 @@
 package controllers
 
-import Services.MongoService
+import Services.{MailerService, MongoService}
 import javax.inject.Inject
 import models.JsonFormats._
 import models.{EMail, Subscribe}
@@ -9,12 +9,13 @@ import play.api.mvc._
 import reactivemongo.api.Cursor
 import reactivemongo.play.json._
 import reactivemongo.play.json.collection.JSONCollection
-import org.apache.commons.mail.SimpleEmail
+import play.api.libs.mailer._
 
 import scala.concurrent.{ExecutionContext, Future}
 
 class EmailController @Inject()(components: ControllerComponents,
-                                val mongoService: MongoService
+                                val mongoService: MongoService,
+                                val mailerService: MailerService
                                ) extends AbstractController(components)
   with play.api.i18n.I18nSupport {
 
@@ -33,15 +34,31 @@ class EmailController @Inject()(components: ControllerComponents,
       mailData => {
         findAllSubscribers().map({
           subscribers =>
-           for (subscriber <- subscribers) {
-              val email = new SimpleEmail
-              email.setFrom(mailData.email)
-              email.addTo(subscriber.email)
-              email.setSubject(mailData.subject)
-              email.setMsg(mailData.body)
-              email.send()
-            }
-            Ok("Sent")
+            val email = Email(
+              "Simple email",
+              "Mister FROM <email@qmail.com>",
+              Seq("Miss TO <tq01244@gmail.com>"),
+              // adds attachment
+              attachments = Seq(
+
+              ),
+              // sends text, HTML or both...
+              bodyText = Some("A text message"),
+              bodyHtml = Some(s"""<html><body><p>An <b>html</b> message with cid <img src="cid:"></p></body></html>""")
+            )
+
+
+
+
+
+//
+//            email.from(mailData.email)
+//            email.subject(mailData.subject)
+//            email.bodyText(mailData.body)
+//            for (subscriber <- subscribers) {
+//              email.addTo(subscriber.email)
+//            }
+            Ok(mailerService.sendEmail(email))
         })
       }
     )
