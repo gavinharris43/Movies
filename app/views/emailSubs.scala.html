@@ -1,16 +1,23 @@
 @(form: Form[EMail])(implicit messages: MessagesProvider)
+@import views.html.helper.FieldConstructor
+@implicitField = @{
+    FieldConstructor(email_input.f)
+}
 
-    @main("Send Mail to Subs") {
+@main("Send Mail to Subs") {
 
-        <div class="container">
-            <div class="form" style="padding-top: 30px" align="center">
-            @helper.form(routes.EmailController.subSubmit()) {
-                @helper.inputText(form("email"), '_label -> "Email", '_showConstraints -> false)
-                @helper.inputText(form("subject"), '_label -> "Subject", '_showConstraints -> false)
-                @helper.textarea(form("body") , '_showConstraints -> false)
-                <button type="submit" class="form-select-button" >Send Email</button>
-            }
-            </div>
+    <div class="container">
+        <div class="form-group pt-3">
+        @helper.form(routes.EmailController.subSubmit()) {
+            @helper.inputText(form("email"), 'class -> "form-control", '_label_class -> "form-control", '_label -> "From Email", '_showConstraints -> false)
+            @helper.inputText(form("subject"), '_label -> "Subject", '_label_class -> "form-control", 'class -> "form-control", '_showConstraints -> false)
+            @helper.textarea(form("body"), '_hidden -> true, 'class -> "form-control", '_showConstraints -> false)
+            <p align="end" class="pt-3">
+                <button type="submit" class="btn btn-primary mb-2">Send Email To Subscribers</button>
+            </p>
+        }
         </div>
-    }
+    </div>
+
+}
 
