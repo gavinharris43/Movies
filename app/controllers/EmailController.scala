@@ -3,69 +3,62 @@ package controllers
 import Services.MongoService
 import javax.inject.Inject
 import models.JsonFormats._
-import models.{Mail, Subscribe}
+import models.{EMail, Subscribe}
 import play.api.libs.json.Json
 import play.api.mvc._
 import reactivemongo.api.Cursor
 import reactivemongo.play.json._
 import reactivemongo.play.json.collection.JSONCollection
-
-import com.typesafe.play._
-import play.api._
-import play.api.Play.current
-import play.api.data._
-import play.api.data.Forms._
-import play.api.mvc._
+import org.apache.commons.mail.SimpleEmail
 
 import scala.concurrent.{ExecutionContext, Future}
 
 class EmailController @Inject()(components: ControllerComponents,
                                 val mongoService: MongoService
-                                     ) extends AbstractController(components)
-   with play.api.i18n.I18nSupport {
+                               ) extends AbstractController(components)
+  with play.api.i18n.I18nSupport {
 
   implicit val ec: ExecutionContext = components.executionContext
   val collection: Future[JSONCollection] = mongoService.mailCollection
 
-  def email: Action[AnyContent] = Action{ implicit request: Request[AnyContent]=>
-    Ok(views.html.email(Mail.mailForm))
+  def email: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+    Ok(views.html.email(EMail.mailForm))
   }
 
-  def submit: Action[AnyContent] = Action { implicit request =>
-    Mail.mailForm.bindFromRequest.fold (
+  def submit: Action[AnyContent] = Action.async { implicit request =>
+    EMail.mailForm.bindFromRequest.fold(
       formWithErrors => {
-        Redirect("/")
+        Future.successful(BadRequest(views.html.email(formWithErrors)))
       },
       mailData => {
-        val mail = use[MailerPlugin].email
-        mail.setSubject("Email sent using Scala")
-        mail.addRecipient(mailData.email)
-        mail.addFrom(mailData.email)
-        mail.send("Hello World")
-        Redirect("/")
-      })
-  }
-
-
-  def findAllMail(): Future[List[Mail]] = {
-    collection.map {
-      _.find(Json.obj("contactable" -> true))
-        .sort(Json.obj("created" -> -1))
-        .cursor[Mail]()
-    }.flatMap(
-      _.collect[List](
-        -1,
-        Cursor.FailOnError[List[Mail]]()
-      )
+        findAllSubscribers().map({
+          subscribers =>
+//           for (subscriber <- subscribers) {
+//              val email = new SimpleEmail
+//              email.setFrom(mailData.email)
+//              email.addTo(subscriber.email)
+//              email.setSubject(mailData.subject)
+//              email.setMsg(mailData.body)
+//              email.send()
+//            }
+            Ok("Sent")
+        })
+      }
     )
   }
 
-  def getAllContactableEmails: Action[AnyContent] = Action.async {
-    findAllMail().map {
-      mailList => Ok("Subscriptions: " + mailList.toString())
 
-
-    }
+  def findAllSubscribers(): Future[List[Subscribe]] = {
+    collection.map {
+      _.find(Json.obj("contactable" -> true))
+        .sort(Json.obj("created" -> -1))
+        .cursor[Subscribe]()
+    }.flatMap(
+      _.collect[List](
+        -1,
+        Cursor.FailOnError[List[Subscribe]]()
+      )
+    )
   }
 
   def subscribe: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>

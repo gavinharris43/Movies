@@ -5,17 +5,17 @@ import play.api.data.Forms._
 
 
 
-case class Mail(email: String, subject: String, body: String){
+case class EMail(email: String, subject: String, body: String){
 }
 
-object Mail {
+object EMail {
 
-  val mailForm: Form[Mail] = Form(
+  val mailForm: Form[EMail] = Form(
     mapping(
       "email" -> email,
       "subject" -> nonEmptyText,
       "body" -> nonEmptyText
-    )(Mail.apply)(Mail.unapply)
+    )(EMail.apply)(EMail.unapply)
   )
 }
 
