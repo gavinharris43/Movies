@@ -33,14 +33,14 @@ class EmailController @Inject()(components: ControllerComponents,
       mailData => {
         findAllSubscribers().map({
           subscribers =>
-//           for (subscriber <- subscribers) {
-//              val email = new SimpleEmail
-//              email.setFrom(mailData.email)
-//              email.addTo(subscriber.email)
-//              email.setSubject(mailData.subject)
-//              email.setMsg(mailData.body)
-//              email.send()
-//            }
+           for (subscriber <- subscribers) {
+              val email = new SimpleEmail
+              email.setFrom(mailData.email)
+              email.addTo(subscriber.email)
+              email.setSubject(mailData.subject)
+              email.setMsg(mailData.body)
+              email.send()
+            }
             Ok("Sent")
         })
       }
