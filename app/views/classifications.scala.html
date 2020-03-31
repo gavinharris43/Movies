@@ -17,7 +17,7 @@
             @for(rating <- ratings) {
                 <div class="row">
                     <div class="col-sm-1 col-lg-1 pl-2 pt-3">
-                        <img src="@rating.iconLocation" class="img-fluid" alt="@rating.title">
+                        <img src=@routes.Assets.versioned(rating.iconLocation) class="img-fluid" alt="@rating.title">
                     </div>
                     <div class="col-sm-11 col-lg-11">
                         <h5>@rating.title</h5>
