@@ -1,0 +1,16 @@
+@(form: Form[Mail])(implicit messages: MessagesProvider)
+
+    @main("Send Mail") {
+
+        <div class="container">
+            <div class="form" style="padding-top: 30px" align="center">
+            @helper.form(routes.EmailController.submit()) {
+                @helper.inputText(form("email"), '_label -> "Email", '_showConstraints -> false)
+                @helper.inputText(form("mailSubject"), '_label -> "Subject", '_showConstraints -> false)
+                @helper.textarea(form("mailBody") , '_showConstraints -> false)
+                <button type="submit" class="form-select-button" >Send Email</button>
+            }
+            </div>
+        </div>
+    }
+

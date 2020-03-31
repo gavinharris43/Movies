@@ -17,5 +17,8 @@ GET         /placestogo             controllers.PlacesToGoController.placesToGoI
 GET         /places                 controllers.PlacesToGoController.places
 POST        /places                 controllers.PlacesToGoController.submit
 
+GET         /mail                 controllers.EmailController.email
+POST        /mail                 controllers.EmailController.submit
+
 
 GET         /classifications        controllers.ClassificationsController.classifications
