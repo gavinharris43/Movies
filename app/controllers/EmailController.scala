@@ -22,6 +22,38 @@ class EmailController @Inject()(components: ControllerComponents,
   implicit val ec: ExecutionContext = components.executionContext
   val collection: Future[JSONCollection] = mongoService.mailCollection
 
+  def subEmail: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+    Ok(views.html.emailSubs(EMail.mailForm))
+  }
+
+  def subSubmit: Action[AnyContent] = Action.async { implicit request =>
+    EMail.mailForm.bindFromRequest.fold(
+      formWithErrors => {
+        Future.successful(BadRequest(views.html.email(formWithErrors)))
+      },
+      mailData => {
+        findAllSubscribers().map({
+          subscribers =>
+
+
+            val email = Email(
+              s"${mailData.subject}",
+              s"Kinoplex <${mailData.email}>",
+              subscribers.map(subscriber=> subscriber.email),
+              // adds attachment
+              attachments = Seq(
+
+              ),
+              // sends text, HTML or both...
+              bodyText = Some("A text message"),
+              bodyHtml = Some(s"""<html><body><p> ${mailData.body}</p></body></html>""")
+            )
+            Ok(mailerService.sendEmail(email))
+        })
+      }
+    )
+  }
+
   def email: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.email(EMail.mailForm))
   }
@@ -32,41 +64,18 @@ class EmailController @Inject()(components: ControllerComponents,
         Future.successful(BadRequest(views.html.email(formWithErrors)))
       },
       mailData => {
-        findAllSubscribers().map({
-          subscribers =>
-
-            val subs =Seq(subscribers.head.email)
-
             val email = Email(
               s"${mailData.subject}",
               s"Kinoplex <${mailData.email}>",
-              subs,
-              // adds attachment
-              attachments = Seq(
-
-              ),
+              Seq("tq01244@gmail.com"),
               // sends text, HTML or both...
               bodyText = Some("A text message"),
-              bodyHtml = Some(s"""<html><body><p>An <b>html</b> ${mailData.body}</p></body></html>""")
+              bodyHtml = Some(s"""<html><body><p>FROM ${mailData.email} ${mailData.body}</p></body></html>""")
             )
-
-
-
-
-
-
-//
-//            email.from(mailData.email)
-//            email.subject(mailData.subject)
-//            email.bodyText(mailData.body)
-//            for (subscriber <- subscribers) {
-//              email.addTo(subscriber.email)
-//            }
-            Ok(mailerService.sendEmail(email))
+           Future(Ok(mailerService.sendEmail(email)))
         })
       }
-    )
-  }
+
 
 
   def findAllSubscribers(): Future[List[Subscribe]] = {
