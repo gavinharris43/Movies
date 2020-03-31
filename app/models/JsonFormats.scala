@@ -13,5 +13,6 @@ object JsonFormats {
   implicit val bsonObjectIDFormat: OFormat[Bookings] = Json.format[Bookings]
   implicit val moviesFormat: OFormat[Movies] = Json.format[Movies]
   implicit val cardFormat: OFormat[CardDetails] = Json.format[CardDetails]
+  implicit val reviewFormat: OFormat[Review] = Json.format[Review]
   implicit val bsonObjectIDFormats: OFormat[BSONObjectID] = Json.format[BSONObjectID]
 }
