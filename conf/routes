@@ -28,7 +28,7 @@ GET         /mail                   controllers.EmailController.email
 POST        /mail                   controllers.EmailController.submit
 GET         /scrum                  controllers.HomeController.scrum
 
-GET         /classifications        controllers.ClassificationsController.classifications
+
 
 
 GET         /DicussionBoard         controllers.DiscussionBoardController.discussionIndex
