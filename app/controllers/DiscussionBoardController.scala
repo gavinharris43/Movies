@@ -8,7 +8,7 @@ import play.api.mvc._
 import scala.concurrent.ExecutionContext.Implicits.global
 
 @Singleton
-class DiscussionBoardController @Inject()(cc: ControllerComponents, val movieController: MovieController) extends AbstractController(cc) {
+class DiscussionBoardController @Inject()(cc: ControllerComponents, val movieController: MovieController, val reviewController: ReviewController) extends AbstractController(cc)  with play.api.i18n.I18nSupport  {
 
   def discussionIndex = Action.async {
     movieController.findAll().map(movies => Ok(views.html.discussionBoard(movies)))
@@ -16,7 +16,10 @@ class DiscussionBoardController @Inject()(cc: ControllerComponents, val movieCon
 
   def discussionListingIndex(title:String) = Action.async {
     implicit request: Request[AnyContent] =>
-    movieController.findByName(title).map(film => Ok(views.html.discussionListing(film.head,Review.ReviewForm)))
+      movieController.findByName(title).flatMap{film => reviewController.findByTitleMovieReview(film.head.movieTitle).map{reviews =>
+        Ok(views.html.discussionListing(film.head, reviews, Review.ReviewForm.fill(Review("","","",film.head.movieTitle)))).withSession(request.session + ("film" -> film.head.movieTitle))
+      }}
+
   }
 
 
