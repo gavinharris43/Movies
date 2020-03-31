@@ -8,7 +8,7 @@ case class Subscribe(email: String, contactable: Boolean){
 }
 
 object Subscribe{
-  val subscribeForm: Form[Mail] = Form(
+  val subscribeForm: Form[Subscribe] = Form(
     mapping(
       "email" -> nonEmptyText,
       "contactable" -> boolean

@@ -16,5 +16,6 @@ object JsonFormats {
   implicit val bsonObjectIDFormats: OFormat[BSONObjectID] = Json.format[BSONObjectID]
   implicit val placesFormat: OFormat[Place] = Json.format[Place]
   implicit val mailFormat: OFormat[Mail] = Json.format[Mail]
+  implicit val subscribeFormat: OFormat[Subscribe] = Json.format[Subscribe]
 
 }
