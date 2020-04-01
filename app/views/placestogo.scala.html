@@ -1,13 +1,14 @@
 @(places: List[Place])
 
 @main("Places to Go") {
-    <div class="container">
-        <div class="container">
+    <div class="pb-md-3 mb-sm-2 bg-primary text-white">
+        <div class="container text-center">
             <h1 class="display-3">Places to Go!</h1>
             <p class="lead">this page is about the places you can visit</p>
-
         </div>
+    </div>
 
+        <div class="container demo-bg">
         <div class="control-box">
 
         @for(place <- places) {
@@ -51,4 +52,6 @@
         }
         </div>
     </div>
+    </div>
+
 }
