@@ -13,7 +13,6 @@ class FilmDateControl{
     string.substring(0,10)
   }
   def sortByDateTime(film: Movies, film2: Movies): Boolean ={
-    DATE_TIME_PATTERN
     val date1 = DATE_TIME_PATTERN.parseDateTime(getDate(film.dateRelease))
     val date2 = DATE_TIME_PATTERN.parseDateTime(getDate(film2.dateRelease))
     if (date1.isAfter(date2)) true else false
