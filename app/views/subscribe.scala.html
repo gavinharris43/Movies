@@ -4,7 +4,7 @@
 
     <div class="container">
         <div class="form" style="padding-top: 30px" align="center">
-        @helper.form(routes.EmailController.subscribeSubmit()) {
+        @helper.form(routes.EmailController.subSubmit()) {
             @helper.inputText(form("email"), '_label -> "Email", '_showConstraints -> false)
             @helper.checkbox(form("contactable"), '_label -> "Contactable", '_showConstraints -> false)
             <button type="submit" class="form-select-button" >Subscribe</button>
