@@ -77,7 +77,7 @@ class ClassificationsController @Inject()(cc: ControllerComponents,
         futureResult.map(result =>
           findAll.map(ratings =>
             Ok(views.html.classifications(ratings)))
-        )
+        ).flatMap(result => result)
       })
   }
 }
