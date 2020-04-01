@@ -14,4 +14,8 @@ class HomeController @Inject()(cc: ControllerComponents) extends AbstractControl
     Ok(views.html.openingtimes())
   }
 
+  def scrum: Action[AnyContent] = Action{
+    Ok(views.html.scrum())
+  }
+
 }
