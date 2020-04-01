@@ -47,6 +47,19 @@ class EmailController @Inject()(components: ControllerComponents,
     )
   }
 
+  def findAllSubscribers(): Future[List[Subscribe]] = {
+    collection.map {
+      _.find(Json.obj("contactable" -> true))
+        .sort(Json.obj("created" -> -1))
+        .cursor[Subscribe]()
+    }.flatMap(
+      _.collect[List](
+        -1,
+        Cursor.FailOnError[List[Subscribe]]()
+      )
+    )
+  }
+
   def email: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.email(EMail.mailForm))
   }
@@ -66,19 +79,6 @@ class EmailController @Inject()(components: ControllerComponents,
         )
         Future(Ok(s"Sent ${mailerService.sendEmail(email)}"))
       })
-  }
-
-  def findAllSubscribers(): Future[List[Subscribe]] = {
-    collection.map {
-      _.find(Json.obj("contactable" -> true))
-        .sort(Json.obj("created" -> -1))
-        .cursor[Subscribe]()
-    }.flatMap(
-      _.collect[List](
-        -1,
-        Cursor.FailOnError[List[Subscribe]]()
-      )
-    )
   }
 
   def subscribe: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
