@@ -8,6 +8,7 @@ GET        /Hard                    controllers.CardDetailsController.hardcode
 GET         /                       controllers.HomeController.index
 GET         /listings:title         controllers.ListingController.listingIndex(title)
 GET         /listingGallery         controllers.ListingController.listingGalleryIndex
+GET         /newListingGallery      controllers.ListingController.newListingGalleryIndex
 GET         /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)
 GET         /                       controllers.HomeController.index
 GET         /screens                controllers.ScreensController.screenType
