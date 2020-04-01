@@ -28,3 +28,5 @@ GET         /classifications        controllers.ClassificationsController.classi
 
 GET         /subscribe              controllers.EmailController.subscribe
 POST        /subscribe              controllers.EmailController.subscribeSubmit
+
+GET         /contact                controllers.ContactController.contact
