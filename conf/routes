@@ -6,9 +6,9 @@ POST       /payment                controllers.CardDetailsController.createPayme
 POST       /Review                  controllers.ReviewController.createReview
 GET        /Hard                    controllers.CardDetailsController.hardcode
 GET         /                       controllers.HomeController.index
-POST        /payment                controllers.Mongo.createPayment
+POST        /payment                controllers.CardDetailsController.createPayment
 
-GET         /Hard                   controllers.Mongo.hardcode
+GET         /Hard                   controllers.CardDetailsController.hardcode
 GET         /listings:title         controllers.ListingController.listingIndex(title)
 GET         /listingGallery         controllers.ListingController.listingGalleryIndex
 GET         /newListingGallery      controllers.ListingController.newListingGalleryIndex
