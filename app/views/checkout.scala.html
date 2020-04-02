@@ -1,7 +1,7 @@
 @(form: Form[CardDetails])(implicit messagesProvider: MessagesProvider)
 
 @main("") {
-    @helper.form(routes.Mongo.createPayment()){
+    @helper.form(routes.CardDetailsController.createPayment()){
         <div class="container ">
             <div class="row bg-dark">
                 <div class="col-md-12 min-vh-100 d-flex flex-column justify-content-center">

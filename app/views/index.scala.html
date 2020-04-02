@@ -1,4 +1,4 @@
-@(message: String)(implicit messages: MessagesProvider)
+@(films: List[Movies], message: String)
 
 @main("Welcome to Kinoplex") {
 
@@ -25,44 +25,18 @@
             </div>
         </div>
 
-
         <div class="row">
-            <div class="col-md-4 mb-5">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h2 class="card-title">Feature Film One</h2>
-                        <p class="card-text">Brief synopsis about the film</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-primary btn-sm">Book Now!</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-md-4 mb-5">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h2 class="card-title">Film Two</h2>
-                        <p class="card-text">Brief synopsis about the film</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-primary btn-sm">Book Now!</a>
+            @for(film <- films) {
+                <div class="col-md-4 mb-5 text-center" >
+                    <a href="@routes.ListingController.listingIndex(film.movieTitle)" class="btn btn-primary btn-lg " style="align-content: center">@film.movieTitle</a>
+                    <div class="card h-100" style =" border:2px solid black;margin-bottom: 15px ;background-image: url('@routes.Assets.versioned(film.images.head)');  background-size: cover; ">
+                        <div class="card-body" style="height: 100px">
+                        </div>
+                        <div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="col-md-4 mb-5">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h2 class="card-title">Film Three</h2>
-                        <p class="card-text">Brief synopsis about the film</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="#" class="btn btn-primary btn-sm">Book Now!</a>
-                    </div>
-                </div>
-            </div>
-
+            }
 
         </div>
 

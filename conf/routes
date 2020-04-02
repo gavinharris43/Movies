@@ -1,10 +1,12 @@
 GET         /                       controllers.HomeController.index
 GET         /checkout               controllers.CardController.checkout()
-GET         /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)
-POST        /payment                controllers.Mongo.createPayment
-GET         /Hard                   controllers.Mongo.hardcode
+POST        /payment                controllers.CardDetailsController.createPayment
+POST        /Review                 controllers.ReviewController.createReview
+GET         /Hard                   controllers.CardDetailsController.hardcode
 GET         /listings:title         controllers.ListingController.listingIndex(title)
 GET         /listingGallery         controllers.ListingController.listingGalleryIndex
+GET         /newListingGallery      controllers.ListingController.newListingGalleryIndex
+GET         /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)
 GET         /screens                controllers.ScreensController.screenType
 GET         /gettingThere           controllers.GettingThereController.gettingThere
 GET         /booking                controllers.TicketBookingController.index
@@ -23,6 +25,8 @@ GET         /mail                   controllers.EmailController.email
 POST        /mail                   controllers.EmailController.submit
 GET         /scrum                  controllers.HomeController.scrum
 
+GET         /DicussionBoard         controllers.DiscussionBoardController.discussionIndex
+GET         /DicussionListing:title controllers.DiscussionBoardController.discussionListingIndex(title)
 GET         /subscribe              controllers.EmailController.subscribe
 POST        /subscribe              controllers.EmailController.subscribeSubmit
 
