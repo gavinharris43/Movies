@@ -126,6 +126,19 @@ dd.info{color:#888;font-size:12px;}
 dd.error{color:#c00;}
 aside a[href^="http"]:after,.doc a[href^="http"]:after{content:url(/images/external.png);vertical-align:middle;margin-left:5px;}
 
+.selector {
+    background-color: #555555;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 24px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
 #map {
     height: 150%;
     width: 100%;
@@ -136,16 +149,54 @@ html, body {
     padding: 0;
 }
 
-/* Container holding the image and the text */
 .container {
     position: relative;
     text-align: center;
 }
 
-/* Centered text */
 .center-left {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-100%, -200%);
+}
+
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+
+.columnAB {
+    float: left;
+    width: 33.3%;
+    margin-bottom: 16px;
+    padding: 0 8px;
+}
+
+@media screen and (max-width: 650px) {
+    .columnAB {
+        width: 100%;
+        display: block;
+    }
+}
+
+.cardAB {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.containerAB {
+    padding: 0 16px;
+}
+
+.containerAB::after, .rowAB::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.titleAB {
+    color: grey;
 }
