@@ -15,7 +15,4 @@ GET         /placestogo             controllers.PlacesToGoController.placesToGoI
 GET         /places                 controllers.PlacesToGoController.places
 POST        /places                 controllers.PlacesToGoController.submit
 
-
 GET         /classifications        controllers.ClassificationsController.classificationIndex
-
-#GET         /create                 controllers.ClassificationsController.create
