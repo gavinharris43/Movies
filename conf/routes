@@ -13,7 +13,7 @@ GET         /booking                controllers.TicketBookingController.index
 POST        /booking                controllers.TicketBookingController.submit
 GET         /openings               controllers.HomeController.openings
 GET         /placestogo             controllers.PlacesToGoController.placesToGoIndex
-
+GET         /about-us               controllers.AboutUsController.about
 GET         /places                 controllers.PlacesToGoController.places
 POST        /places                 controllers.PlacesToGoController.submit
 

@@ -149,3 +149,16 @@ html, body {
     left: 50%;
     transform: translate(-100%, -200%);
 }
+
+.div1 {
+    height: 250px;
+    text-align:center;
+    padding-top: 75px;
+}
+
+.person {
+    width: 500px;
+    padding: 10px;
+    border: 5px solid gray;
+
+}
