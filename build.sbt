@@ -1,4 +1,4 @@
-name := "Recipies_New_Play_Version"
+name := "Kinoplex_New_Play_Version"
  
 version := "1.0" 
       
