@@ -16,6 +16,6 @@ GET         /places                 controllers.PlacesToGoController.places
 POST        /places                 controllers.PlacesToGoController.submit
 
 
-GET         /classifications        controllers.ClassificationsController.classifications
+GET         /classifications        controllers.ClassificationsController.classificationIndex
 
-GET         /create                 controllers.ClassificationsController.insertRatings
+#GET         /create                 controllers.ClassificationsController.create
