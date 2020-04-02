@@ -20,7 +20,7 @@ class MongoService @Inject()(
   implicit val ec: ExecutionContextExecutor = ExecutionContext.global
 
   def collection: Future[JSONCollection] = reactiveMongoApi.database.map(_.collection[JSONCollection]("Places"))
-
+  def mailCollection: Future[JSONCollection] = reactiveMongoApi.database.map(_.collection[JSONCollection]("Subscribers"))
   def createPlace(user: Place): Future[WriteResult] = {
     collection.flatMap(_.insert.one(user))
   }

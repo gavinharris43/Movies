@@ -1,12 +1,12 @@
 GET         /                       controllers.HomeController.index
 GET         /checkout               controllers.CardController.checkout()
-GET         /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)
-
-POST        /payment                controllers.Mongo.createPayment
-
-GET         /Hard                   controllers.Mongo.hardcode
+POST        /payment                controllers.CardDetailsController.createPayment
+POST        /Review                 controllers.ReviewController.createReview
+GET         /Hard                   controllers.CardDetailsController.hardcode
 GET         /listings:title         controllers.ListingController.listingIndex(title)
 GET         /listingGallery         controllers.ListingController.listingGalleryIndex
+GET         /newListingGallery      controllers.ListingController.newListingGalleryIndex
+GET         /assets/*file           controllers.Assets.versioned(path="/public", file: Asset)
 GET         /screens                controllers.ScreensController.screenType
 GET         /gettingThere           controllers.GettingThereController.gettingThere
 GET         /booking                controllers.TicketBookingController.index
@@ -17,5 +17,19 @@ GET         /placestogo             controllers.PlacesToGoController.placesToGoI
 GET         /places                 controllers.PlacesToGoController.places
 POST        /places                 controllers.PlacesToGoController.submit
 
+GET         /classifications        controllers.ClassificationsController.classificationIndex
+GET         /submail                controllers.EmailController.subEmail
+POST        /submail                controllers.EmailController.subSubmit
 
-GET         /classifications        controllers.ClassificationsController.classifications
+GET         /mail                   controllers.EmailController.email
+POST        /mail                   controllers.EmailController.submit
+GET         /scrum                  controllers.HomeController.scrum
+
+GET         /DicussionBoard         controllers.DiscussionBoardController.discussionIndex
+GET         /DicussionListing:title controllers.DiscussionBoardController.discussionListingIndex(title)
+GET         /subscribe              controllers.EmailController.subscribe
+POST        /subscribe              controllers.EmailController.subscribeSubmit
+
+GET         /contact                controllers.ContactController.contact
+
+GET         /aboutUs                controllers.AboutUsController.about
