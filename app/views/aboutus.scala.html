@@ -1,4 +1,5 @@
 @main("About Us"){
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <div class="row">
         <div class="col-sm-12">
             <div class="text-center">
@@ -10,74 +11,113 @@
         </div>
     </div>
     <div align="center">
-        <h2>Keep In Touch!</h2>
-        <a href="https://twitter.com/KinoplexC">
-            <img src="@routes.Assets.versioned("images/icons/circle-twitter.png")" width="100" height="100" >
-        </a>
-        <a href="@routes.ContactController.contact()">
-            <img src="@routes.Assets.versioned("images/icons/email-icon.png")" width="95" height="95" >
-        </a>
+        <h2>Meet The Team</h2>
     </div>
     <div class="row pl-5 pt-5">
         <div class="container-fluid">
-            <div class="text-center">
                 <div class="jumbotron">
-                    <div class="row">
-                        <div class="col-sm-1 col-lg-1" style="padding-left: 2%; padding-top: 20px">
-                            <img src="@routes.Assets.versioned("images/icons/person-image.png")" class="img-fluid" alt="parental guidance">
+                    <div class="rowAB">
+                        <div class="columnAB">
+                            <div class="cardAB">
+                                <img src="@routes.Assets.versioned("images/icons/person-image.png")" class="img-fluid" alt="icon" style="width:100%">
+                                <div class="containerAB">
+                                    <h2>Gavin Harris</h2>
+                                    <p class="titleAB">Team Leader/Scrum Master/Developer</p>
+                                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                                    <p>
+                                        <a href="https://twitter.com/KinoplexC">
+                                            <img src="@routes.Assets.versioned("images/icons/circle-twitter.png")" width="100" height="100" >
+                                        </a>
+                                        <a href="@routes.ContactController.contact()">
+                                            <img src="@routes.Assets.versioned("images/icons/email-icon.png")" width="95" height="95" >
+                                        </a>
+                                        <a href="https://uk.linkedin.com/in/gavin-harris-8a8a77144?trk=people-guest_people_search-card" target="_blank">
+                                            <img src="@routes.Assets.versioned("images/icons/linkedin-icon.png")" width="100" height="100" >
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-sm-11 col-lg-11">
-                            <h5>Gavin(Team Leader)</h5>
 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-1 col-lg-1" style="padding-left: 2%; padding-top: 20px">
-                            <img src="@routes.Assets.versioned("images/icons/person-image.png")" class="img-fluid" alt="parental guidance">
-                        </div>
-                        <div class="col-sm-11 col-lg-11">
-                            <h5>Juamal</h5>
+                            <div class="columnAB">
+                                <div class="cardAB">
+                                    <img src="@routes.Assets.versioned("images/icons/person-image.png")" class="img-fluid" alt="icon" style="width:100%">
+                                    <div class="containerAB">
+                                        <h2>Juamal Blackman</h2>
+                                        <p class="titleAB">Developer</p>
+                                        <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                                        <p>
+                                            <a href="https://twitter.com/KinoplexC">
+                                                <img src="@routes.Assets.versioned("images/icons/circle-twitter.png")" width="100" height="100" >
+                                            </a>
+                                            <a href="@routes.ContactController.contact()">
+                                                <img src="@routes.Assets.versioned("images/icons/email-icon.png")" width="95" height="95" >
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-1 col-lg-1" style="padding-left: 2%; padding-top: 20px">
-                            <img src="@routes.Assets.versioned("images/icons/person-image.png")" class="img-fluid" alt="parental guidance">
-                        </div>
-                        <div class="col-sm-11 col-lg-11">
-                            <h5>Nathan</h5>
 
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-1 col-lg-1" style="padding-left: 2%; padding-top: 20px">
-                            <img src="@routes.Assets.versioned("images/icons/person-image.png")" class="img-fluid" alt="parental guidance">
-                        </div>
-                        <div class="col-sm-11 col-lg-11">
-                            <h5>Kobby</h5>
 
+                        <div class="columnAB">
+                            <div class="cardAB">
+                                <img src="@routes.Assets.versioned("images/icons/person-image.png")" class="img-fluid" alt="icon" style="width:100%">
+                                <div class="containerAB">
+                                    <h2>Jack Wozniak</h2>
+                                    <p class="titleAB">Developer</p>
+                                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                                    <p>
+                                        <a href="https://twitter.com/KinoplexC">
+                                            <img src="@routes.Assets.versioned("images/icons/circle-twitter.png")" width="100" height="100" >
+                                        </a>
+                                        <a href="@routes.ContactController.contact()">
+                                            <img src="@routes.Assets.versioned("images/icons/email-icon.png")" width="95" height="95" >
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-1 col-lg-1" style="padding-left: 2%; padding-top: 20px">
-                            <img src="@routes.Assets.versioned("images/icons/person-image.png")" class="img-fluid" alt="parental guidance">
-                        </div>
-                        <div class="col-sm-11 col-lg-11">
-                            <h5>Jack</h5>
 
+                        <div class="columnAB">
+                            <div class="cardAB">
+                                <img src="@routes.Assets.versioned("images/icons/person-image.png")" class="img-fluid" alt="icon" style="width:100%">
+                                <div class="containerAB">
+                                    <h2>Nathan Farnell</h2>
+                                    <p class="titleAB">Developer</p>
+                                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                                    <p>
+                                        <a href="https://twitter.com/KinoplexC">
+                                            <img src="@routes.Assets.versioned("images/icons/circle-twitter.png")" width="100" height="100" >
+                                        </a>
+                                        <a href="@routes.ContactController.contact()">
+                                            <img src="@routes.Assets.versioned("images/icons/email-icon.png")" width="95" height="95" >
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-1 col-lg-1" style="padding-left: 2%; padding-top: 20px">
-                            <img src="@routes.Assets.versioned("images/icons/person-image.png")" class="img-fluid" alt="parental guidance">
-                        </div>
-                        <div class="col-sm-11 col-lg-11">
-                            <h5>Daniel</h5>
 
+                        <div class="columnAB">
+                            <div class="cardAB">
+                                <img src="@routes.Assets.versioned("images/icons/person-image.png")" class="img-fluid" alt="icon" style="width:100%">
+                                <div class="containerAB">
+                                    <h2>Daniel Parkes</h2>
+                                    <p class="titleAB">Developer</p>
+                                    <p>Some text that describes me lorem ipsum ipsum lorem.</p>
+                                    <p>
+                                        <a href="https://twitter.com/KinoplexC">
+                                            <img src="@routes.Assets.versioned("images/icons/circle-twitter.png")" width="100" height="100" >
+                                        </a>
+                                        <a href="@routes.ContactController.contact()">
+                                            <img src="@routes.Assets.versioned("images/icons/email-icon.png")" width="95" height="95" >
+                                        </a>
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
 }
