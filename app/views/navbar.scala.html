@@ -34,9 +34,10 @@
             <li class="nav-item">
                 <a class="nav-link" href="@routes.DiscussionBoardController.discussionIndex">Chat Board</a>
             </li>
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Account
+                    More
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href=@routes.TicketBookingController.index()>Bookings Action</a>
@@ -44,11 +45,14 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href=@routes.EmailController.email()>EmailUs</a>
                     <a class="dropdown-item" href=@routes.HomeController.scrum()>Scrum Description</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href=@routes.AboutUsController.about()>About Us</a>
                 </div>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="@routes.ContactController.contact">Contact us</a>
             </li>
+
         </ul>
 
     </div>

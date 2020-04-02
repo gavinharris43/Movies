@@ -31,3 +31,5 @@ GET         /subscribe              controllers.EmailController.subscribe
 POST        /subscribe              controllers.EmailController.subscribeSubmit
 
 GET         /contact                controllers.ContactController.contact
+
+GET         /aboutUs                controllers.AboutUsController.about
