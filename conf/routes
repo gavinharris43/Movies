@@ -33,7 +33,7 @@ GET         /scrum                  controllers.HomeController.scrum
 
 
 
-
+GET         /classifications        controllers.ClassificationsController.classifications
 GET         /DicussionBoard         controllers.DiscussionBoardController.discussionIndex
 GET         /DicussionListing:title controllers.DiscussionBoardController.discussionListingIndex(title)
 GET         /subscribe              controllers.EmailController.subscribe
