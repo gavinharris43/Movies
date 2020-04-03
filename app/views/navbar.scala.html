@@ -10,10 +10,10 @@
                 <a class="nav-link" href="@routes.HomeController.index()">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="@routes.ListingController.newListingGalleryIndex">New Listings Gallery</a>
+                <a class="nav-link" href="@routes.ListingController.newListingGalleryIndex">New Releases</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="@routes.ListingController.listingGalleryIndex">Listings Gallery</a>
+                <a class="nav-link" href="@routes.ListingController.listingGalleryIndex">Gallery</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="@routes.ScreensController.screenType()">Screenings</a>
@@ -22,7 +22,7 @@
                 <a class="nav-link" href="@routes.HomeController.openings">Opening Times</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="@routes.ClassificationsController.classificationIndex">Film Classifications</a>
+                <a class="nav-link" href="@routes.ClassificationsController.classificationIndex">Film Classes</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="@routes.PlacesToGoController.placesToGoIndex()">Places To Go</a>
@@ -46,13 +46,9 @@
                     <a class="dropdown-item" href=@routes.HomeController.scrum()>Scrum Description</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href=@routes.AboutUsController.about()>About Us</a>
+                    <a class="dropdown-item" href="@routes.ContactController.contact()">Contact Us</a>
                 </div>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@routes.ContactController.contact">Contact us</a>
-            </li>
-
-        </ul>
+           </ul>
         <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
             <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
