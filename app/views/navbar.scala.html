@@ -23,7 +23,7 @@
                 <a class="nav-link" href="@routes.HomeController.openings">Opening Times</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="@routes.ClassificationsController.classificationIndex">Film Classifications</a>
+                <a class="nav-link" href="@routes.ClassificationsController.classificationIndex">Film Classes</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="@routes.PlacesToGoController.placesToGoIndex()">Places To Go</a>
@@ -36,7 +36,7 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Account
+                    More
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href=@routes.TicketBookingController.index()>Bookings Action</a>
@@ -44,12 +44,9 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href=@routes.EmailController.email()>EmailUs</a>
                     <a class="dropdown-item" href=@routes.HomeController.scrum()>Scrum Description</a>
+                    <a class="dropdown-item" href="@routes.ContactController.contact">Contact Us</a>
                 </div>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="@routes.ContactController.contact">Contact us</a>
-            </li>
         </ul>
-
     </div>
 </nav>
