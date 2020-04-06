@@ -25,7 +25,7 @@ object Review{
       "name" -> nonEmptyText,
       "body" -> nonEmptyText,
       "rating" -> nonEmptyText,
-      "movieTitle" -> nonEmptyText,
+      "movieTitle" -> nonEmptyText
     )(Review.apply)(Review.unapply)
   )
 }

@@ -1,0 +1,12 @@
+@import views.html.defaultpages.error
+@(element: helper.FieldElements)
+
+    @if(element.hasErrors) {
+        <p style="color: #7f20bb;
+            font-weight: bold ">@element.errors</p>
+    }
+@if(!element.args.get('_hidden)) {
+        <label for="@element.id" class="@element.args.get('_label_class)">@element.label</label>
+}
+@element.input
+

@@ -19,5 +19,6 @@ object JsonFormats {
   implicit val placesFormat: OFormat[Place] = Json.format[Place]
   implicit val mailFormat: OFormat[EMail] = Json.format[EMail]
   implicit val subscribeFormat: OFormat[Subscribe] = Json.format[Subscribe]
+  implicit val searchFormat: OFormat[Search] = Json.format[Search]
 
 }
